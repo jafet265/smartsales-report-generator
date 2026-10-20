@@ -11,6 +11,7 @@ The Excel report is saved to:
 """
 
 import csv
+import json
 import logging
 import sys
 from collections import Counter
@@ -46,6 +47,52 @@ VALID_CATEGORIES = {
 DEFAULT_INPUT = Path("data/raw/sales_data_1500_with_invalid.csv")
 DEFAULT_OUTPUT = Path("reports/smartsales_report.xlsx")
 
+
+CONFIG_FILE = Path("config.json")
+
+
+def load_config(config_file=CONFIG_FILE):
+    """Load report settings from a JSON file, or use built-in defaults."""
+    settings = {
+        "input_file": str(DEFAULT_INPUT),
+        "output_file": str(DEFAULT_OUTPUT),
+    }
+
+    config_path = Path(config_file)
+
+    # Keep the program working if no configuration file exists.
+    if not config_path.is_file():
+        logging.info(
+            "Configuration file not found; using built-in defaults."
+        )
+        return settings
+
+    try:
+        with config_path.open("r", encoding="utf-8") as file:
+            user_settings = json.load(file)
+
+        if not isinstance(user_settings, dict):
+            raise ValueError("Configuration must be a JSON object.")
+
+        # Only allow the two supported settings.
+        for key in settings:
+            if key in user_settings:
+                value = user_settings[key]
+
+                if not isinstance(value, str) or not value.strip():
+                    raise ValueError(
+                        f"'{key}' must be a non-empty string."
+                    )
+
+                settings[key] = value
+
+        logging.info("Configuration loaded from %s", config_path)
+        return settings
+
+    except (json.JSONDecodeError, OSError, ValueError) as error:
+        raise ValueError(
+            f"Unable to load configuration file '{config_path}': {error}"
+        ) from error
 
 
 def read_sales_file(filename):
@@ -417,6 +464,7 @@ def create_excel_report(rows, valid_records, invalid_records, output_file):
     return output_path, total_revenue, total_units
 
 
+
 def main():
     """Run validation and create the Excel report."""
 
@@ -426,15 +474,28 @@ def main():
         format="%(asctime)s - %(levelname)s - %(message)s",
     )
 
+    logging.info("SmartSales report generation started.")
+
+    # Load the default settings from config.json.
+    try:
+        settings = load_config()
+    except ValueError as error:
+        logging.error("%s", error)
+        return 1
+
+    # Command-line arguments override configuration settings.
     input_file = (
-        Path(sys.argv[1]) if len(sys.argv) > 1 else DEFAULT_INPUT
+        Path(sys.argv[1])
+        if len(sys.argv) > 1
+        else Path(settings["input_file"])
     )
 
     output_file = (
-        Path(sys.argv[2]) if len(sys.argv) > 2 else DEFAULT_OUTPUT
+        Path(sys.argv[2])
+        if len(sys.argv) > 2
+        else Path(settings["output_file"])
     )
 
-    logging.info("SmartSales report generation started.")
     logging.info("Input file: %s", input_file)
     logging.info("Output file: %s", output_file)
 

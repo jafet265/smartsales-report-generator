@@ -166,6 +166,48 @@ Open the local URL printed by Streamlit. In GitHub Codespaces, use the forwarded
 
 Upload a CSV file through the dashboard to analyze another dataset without changing the Python source code.
 
+## Configuration
+
+SmartSales supports a JSON configuration file named `config.json` in the repository's root directory.
+
+### Default configuration
+
+```json
+{
+    "input_file": "data/raw/sales_data_1500_with_invalid.csv",
+    "output_file": "reports/smartsales_report.xlsx"
+}
+```
+
+- `input_file`: path to the sales data file. Supported formats are CSV and Excel (`.xlsx`).
+- `output_file`: path where the generated Excel report will be saved.
+
+### Run with configuration settings
+
+```bash
+python src/smartsales_stage3.py
+```
+
+When no command-line paths are provided, SmartSales uses the paths specified in `config.json`.
+
+### Override configuration from the command line
+
+```bash
+python src/smartsales_stage3.py data/raw/another_sales_file.csv reports/custom_report.xlsx
+```
+
+Command-line arguments take precedence over the corresponding configuration settings.
+
+### Default behavior
+
+If `config.json` does not exist, SmartSales uses its built-in default paths. If the configuration file exists but contains invalid JSON or invalid path settings, the program reports an error.
+
+### Run automated tests
+
+```bash
+python -m pytest -q
+```
+
 ## Input CSV Format
 
 The input file must contain these six columns:

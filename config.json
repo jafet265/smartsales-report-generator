@@ -1,0 +1,4 @@
+{
+    "input_file": "data/raw/sales_data_1500_with_invalid.csv",
+    "output_file": "reports/smartsales_report.xlsx"
+}

@@ -762,3 +762,65 @@ def test_read_sales_file_rejects_unsupported_extension(tmp_path, capsys):
 
     assert rows is None
     assert "Unsupported file type" in captured.out
+
+
+def test_load_config_uses_defaults_when_file_is_missing(tmp_path):
+    """Missing configuration files should use built-in defaults."""
+    from src.smartsales_stage3 import (
+        DEFAULT_INPUT,
+        DEFAULT_OUTPUT,
+        load_config,
+    )
+
+    settings = load_config(tmp_path / "missing.json")
+
+    assert settings["input_file"] == str(DEFAULT_INPUT)
+    assert settings["output_file"] == str(DEFAULT_OUTPUT)
+
+
+def test_load_config_reads_custom_settings(tmp_path):
+    """Custom paths should be loaded from JSON."""
+    import json
+    from src.smartsales_stage3 import load_config
+
+    config_file = tmp_path / "config.json"
+    config_file.write_text(
+        json.dumps({
+            "input_file": "data/custom_sales.csv",
+            "output_file": "reports/custom_report.xlsx",
+        }),
+        encoding="utf-8",
+    )
+
+    settings = load_config(config_file)
+
+    assert settings["input_file"] == "data/custom_sales.csv"
+    assert settings["output_file"] == "reports/custom_report.xlsx"
+
+
+def test_load_config_rejects_invalid_json(tmp_path):
+    """Invalid JSON should produce a clear configuration error."""
+    import pytest
+    from src.smartsales_stage3 import load_config
+
+    config_file = tmp_path / "config.json"
+    config_file.write_text("{invalid json", encoding="utf-8")
+
+    with pytest.raises(ValueError, match="Unable to load configuration"):
+        load_config(config_file)
+
+
+def test_load_config_rejects_empty_path(tmp_path):
+    """Configuration paths must be non-empty strings."""
+    import json
+    import pytest
+    from src.smartsales_stage3 import load_config
+
+    config_file = tmp_path / "config.json"
+    config_file.write_text(
+        json.dumps({"input_file": "  "}),
+        encoding="utf-8",
+    )
+
+    with pytest.raises(ValueError, match="input_file"):
+        load_config(config_file)

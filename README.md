@@ -166,6 +166,7 @@ Open the local URL printed by Streamlit. In GitHub Codespaces, use the forwarded
 
 Upload a CSV file through the dashboard to analyze another dataset without changing the Python source code.
 
+
 ## Configuration
 
 SmartSales supports a JSON configuration file named `config.json` in the repository's root directory.
@@ -175,12 +176,22 @@ SmartSales supports a JSON configuration file named `config.json` in the reposit
 ```json
 {
     "input_file": "data/raw/sales_data_1500_with_invalid.csv",
-    "output_file": "reports/smartsales_report.xlsx"
+    "output_file": "reports/smartsales_report.xlsx",
+    "report_title": "SmartSales Report",
+    "currency_symbol": "$",
+    "top_products_count": 5
 }
 ```
 
-- `input_file`: path to the sales data file. Supported formats are CSV and Excel (`.xlsx`).
-- `output_file`: path where the generated Excel report will be saved.
+### Available settings
+
+| Setting | Description |
+|---|---|
+| `input_file` | Path to the sales data file. Supports CSV and Excel (`.xlsx`). |
+| `output_file` | Destination path for the generated Excel report. |
+| `report_title` | Title stored in the Excel workbook and displayed in the dashboard. |
+| `currency_symbol` | Symbol used to display monetary values, such as `$`, `€`, or `£`. This changes formatting only; it does not convert currencies. |
+| `top_products_count` | Number of highest-revenue products included in the business-insight revenue-share calculation. Must be a positive integer. |
 
 ### Run with configuration settings
 
@@ -196,11 +207,11 @@ When no command-line paths are provided, SmartSales uses the paths specified in 
 python src/smartsales_stage3.py data/raw/another_sales_file.csv reports/custom_report.xlsx
 ```
 
-Command-line arguments take precedence over the corresponding configuration settings.
+Command-line arguments take precedence over the configured input and output paths.
 
-### Default behavior
+### Default behavior and validation
 
-If `config.json` does not exist, SmartSales uses its built-in default paths. If the configuration file exists but contains invalid JSON or invalid path settings, the program reports an error.
+If `config.json` does not exist, SmartSales uses its built-in defaults. Invalid JSON, empty path or text settings, and a `top_products_count` that is not a positive integer cause a configuration error.
 
 ### Run automated tests
 

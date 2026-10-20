@@ -776,6 +776,9 @@ def test_load_config_uses_defaults_when_file_is_missing(tmp_path):
 
     assert settings["input_file"] == str(DEFAULT_INPUT)
     assert settings["output_file"] == str(DEFAULT_OUTPUT)
+    assert settings["report_title"] == "SmartSales Report"
+    assert settings["currency_symbol"] == "$"
+    assert settings["top_products_count"] == 5
 
 
 def test_load_config_reads_custom_settings(tmp_path):
@@ -788,6 +791,9 @@ def test_load_config_reads_custom_settings(tmp_path):
         json.dumps({
             "input_file": "data/custom_sales.csv",
             "output_file": "reports/custom_report.xlsx",
+            "report_title": "Monthly Sales",
+            "currency_symbol": "€",
+            "top_products_count": 3,
         }),
         encoding="utf-8",
     )
@@ -796,6 +802,10 @@ def test_load_config_reads_custom_settings(tmp_path):
 
     assert settings["input_file"] == "data/custom_sales.csv"
     assert settings["output_file"] == "reports/custom_report.xlsx"
+    assert settings["report_title"] == "Monthly Sales"
+    assert settings["currency_symbol"] == "€"
+    assert settings["top_products_count"] == 3
+
 
 
 def test_load_config_rejects_invalid_json(tmp_path):
@@ -823,4 +833,21 @@ def test_load_config_rejects_empty_path(tmp_path):
     )
 
     with pytest.raises(ValueError, match="input_file"):
+        load_config(config_file)
+
+
+
+def test_load_config_rejects_invalid_top_products_count(tmp_path):
+    """The top-products count must be a positive integer."""
+    import json
+    import pytest
+    from src.smartsales_stage3 import load_config
+
+    config_file = tmp_path / "config.json"
+    config_file.write_text(
+        json.dumps({"top_products_count": 0}),
+        encoding="utf-8",
+    )
+
+    with pytest.raises(ValueError, match="top_products_count"):
         load_config(config_file)

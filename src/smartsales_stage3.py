@@ -50,17 +50,18 @@ DEFAULT_OUTPUT = Path("reports/smartsales_report.xlsx")
 
 CONFIG_FILE = Path("config.json")
 
-
 def load_config(config_file=CONFIG_FILE):
-    """Load report settings from a JSON file, or use built-in defaults."""
+    """Load report settings from JSON, or use built-in defaults."""
     settings = {
         "input_file": str(DEFAULT_INPUT),
         "output_file": str(DEFAULT_OUTPUT),
+        "report_title": "SmartSales Report",
+        "currency_symbol": "$",
+        "top_products_count": 5,
     }
 
     config_path = Path(config_file)
 
-    # Keep the program working if no configuration file exists.
     if not config_path.is_file():
         logging.info(
             "Configuration file not found; using built-in defaults."
@@ -74,8 +75,14 @@ def load_config(config_file=CONFIG_FILE):
         if not isinstance(user_settings, dict):
             raise ValueError("Configuration must be a JSON object.")
 
-        # Only allow the two supported settings.
-        for key in settings:
+        string_settings = (
+            "input_file",
+            "output_file",
+            "report_title",
+            "currency_symbol",
+        )
+
+        for key in string_settings:
             if key in user_settings:
                 value = user_settings[key]
 
@@ -84,14 +91,25 @@ def load_config(config_file=CONFIG_FILE):
                         f"'{key}' must be a non-empty string."
                     )
 
-                settings[key] = value
+                settings[key] = value.strip()
+
+        if "top_products_count" in user_settings:
+            count = user_settings["top_products_count"]
+
+            if not isinstance(count, int) or isinstance(count, bool) or count < 1:
+                raise ValueError(
+                    "'top_products_count' must be a positive integer."
+                )
+
+            settings["top_products_count"] = count
 
         logging.info("Configuration loaded from %s", config_path)
         return settings
 
     except (json.JSONDecodeError, OSError, ValueError) as error:
         raise ValueError(
-            f"Unable to load configuration file '{config_path}': {error}"
+            f"Unable to load configuration file "
+            f"'{config_path}': {error}"
         ) from error
 
 
@@ -389,21 +407,32 @@ def style_worksheet(worksheet):
         worksheet.column_dimensions[column_letter].width = min(longest_value + 2, 45)
 
 
-def create_excel_report(rows, valid_records, invalid_records, output_file):
+def create_excel_report(
+    rows,
+    valid_records,
+    invalid_records,
+    output_file,
+    report_title="SmartSales Report",
+    currency_symbol="$",
+):
     """Create an Excel workbook with summary, product revenue, and errors."""
     total_revenue, total_units, revenue_by_product = calculate_summary(valid_records)
     workbook = Workbook()
 
+
     # Worksheet 1: overall summary.
     summary = workbook.active
     summary.title = "Sales Summary"
+    workbook.properties.title = report_title
+
     summary.append(["Metric", "Value"])
     summary.append(["Total records", len(rows)])
     summary.append(["Valid records", len(valid_records)])
     summary.append(["Invalid records", len(invalid_records)])
     summary.append(["Total units sold", total_units])
     summary.append(["Total revenue", float(total_revenue)])
-    summary["B6"].number_format = '$#,##0.00'
+
+    summary["B6"].number_format = f'"{currency_symbol}"#,##0.00'
     style_worksheet(summary)
 
     # Worksheet 2: revenue grouped by product.
@@ -416,7 +445,7 @@ def create_excel_report(rows, valid_records, invalid_records, output_file):
         product_sheet.append([product, float(revenue)])
 
     for cell in product_sheet["B"][1:]:
-        cell.number_format = '$#,##0.00'
+        cell.number_format = f'"{currency_symbol}"#,##0.00'
     style_worksheet(product_sheet)
 
     # Worksheet 3: all invalid rows and their validation errors.

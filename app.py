@@ -19,6 +19,7 @@ import streamlit as st
 
 from src.smartsales_stage3 import (
     create_excel_report,
+    load_config,
     prepare_records,
     read_sales_file,
 )
@@ -26,6 +27,11 @@ from src.smartsales_stage3 import (
 
 PROJECT_ROOT = Path(__file__).resolve().parent
 DEFAULT_INPUT = PROJECT_ROOT / "data" / "raw" / "sales_data_1500_with_invalid.csv"
+
+SETTINGS = load_config()
+CURRENCY_SYMBOL = SETTINGS["currency_symbol"]
+REPORT_TITLE = SETTINGS["report_title"]
+TOP_PRODUCTS_COUNT = SETTINGS["top_products_count"]
 
 st.set_page_config(
     page_title="SmartSales Dashboard",
@@ -35,9 +41,8 @@ st.set_page_config(
 
 
 def money(value):
-    """Format a numeric value as US dollars."""
-    return f"${float(value):,.2f}"
-
+    """Format a number using the configured currency symbol."""
+    return f"{CURRENCY_SYMBOL}{float(value):,.2f}"
 
 def load_rows(uploaded_file):
     """Load rows through the project's shared Stage 3 CSV reader."""
@@ -79,8 +84,9 @@ def create_report_bytes(rows, valid_records, invalid_records):
             valid_records,
             invalid_records,
             temporary_path,
+            report_title=REPORT_TITLE,
+            currency_symbol=CURRENCY_SYMBOL,
         )
-
         return temporary_path.read_bytes()
 
     finally:
@@ -141,7 +147,7 @@ def group_revenue(filtered_df, group_column):
 
 
 def main():
-    st.title("📊 SmartSales Dashboard")
+    st.title(f"📊 {REPORT_TITLE}")
     st.caption(
         "Explore validated sales performance. Invalid records are excluded "
         "from all revenue and unit calculations."
@@ -323,15 +329,15 @@ def main():
 
         # Calculate how much revenue comes from the top five products.
         total_revenue = float(product_revenue_values["revenue"].sum())
-        top_five_revenue = float(
-            product_revenue_values.head(5)["revenue"].sum()
+        top_products_revenue = float(
+            product_revenue_values.head(TOP_PRODUCTS_COUNT)["revenue"].sum()
         )
-        top_five_share = (
-            top_five_revenue / total_revenue * 100
+
+        top_products_share = (
+            top_products_revenue / total_revenue * 100
             if total_revenue > 0
             else 0.0
         )
-
         insight_cols = st.columns(2)
 
         with insight_cols[0]:
@@ -368,8 +374,8 @@ def main():
             )
 
         st.markdown(
-            f"- **Top five products' share of revenue:** "
-            f"{top_five_share:.1f}%"
+            f"- **Top {TOP_PRODUCTS_COUNT} products' share of revenue:** "
+            f"{top_products_share:.1f}%"
         )
 
     st.subheader("Detailed reports")

@@ -1,4 +1,7 @@
 {
     "input_file": "data/raw/sales_data_1500_with_invalid.csv",
-    "output_file": "reports/smartsales_report.xlsx"
+    "output_file": "reports/smartsales_report.xlsx",
+    "report_title": "SmartSales Report",
+    "currency_symbol": "$",
+    "top_products_count": 5
 }

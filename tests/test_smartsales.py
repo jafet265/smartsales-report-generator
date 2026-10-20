@@ -851,3 +851,69 @@ def test_load_config_rejects_invalid_top_products_count(tmp_path):
 
     with pytest.raises(ValueError, match="top_products_count"):
         load_config(config_file)
+
+def test_summarize_calculates_average_order_value():
+    """Multiple product lines for one order count as one order."""
+    import pandas as pd
+    from app import summarize
+
+    sales = pd.DataFrame([
+        {"order_id": 1, "product": "Notebook", "quantity": 2, "revenue": 10.0},
+        {"order_id": 1, "product": "Pen", "quantity": 3, "revenue": 6.0},
+        {"order_id": 2, "product": "Bag", "quantity": 1, "revenue": 24.0},
+    ])
+
+    result = summarize(sales)
+
+    assert result["transactions"] == 3
+    assert result["orders"] == 2
+    assert result["average"] == 40.0 / 3
+    assert result["average_order_value"] == 20.0
+
+
+def test_business_insights_calculates_category_shares():
+    """Category shares should add up to 100 percent."""
+    import pandas as pd
+    from app import calculate_business_insights
+
+    sales = pd.DataFrame([
+        {"product": "Notebook", "category": "Stationery", "revenue": 30.0},
+        {"product": "Pen", "category": "Stationery", "revenue": 20.0},
+        {"product": "Bag", "category": "Accessories", "revenue": 50.0},
+    ])
+
+    result = calculate_business_insights(sales)
+    shares = result["category_shares"].set_index("category")["share_percent"]
+
+    assert shares["Stationery"] == 50.0
+    assert shares["Accessories"] == 50.0
+    assert round(shares.sum(), 5) == 100.0
+
+
+def test_business_insights_calculates_product_revenue_shares():
+    """Top-product shares should use total revenue as the denominator."""
+    import pandas as pd
+    from app import calculate_business_insights
+
+    sales = pd.DataFrame([
+        {"product": "Notebook", "category": "Stationery", "revenue": 60.0},
+        {"product": "Pen", "category": "Stationery", "revenue": 30.0},
+        {"product": "Bag", "category": "Accessories", "revenue": 10.0},
+    ])
+
+    result = calculate_business_insights(sales, top_products_count=2)
+
+    assert result["top_product_share"] == 60.0
+    assert result["top_products_share"] == 90.0
+
+
+def test_business_insights_handles_empty_data():
+    """Empty sales data should return zero shares without errors."""
+    import pandas as pd
+    from app import calculate_business_insights
+
+    result = calculate_business_insights(pd.DataFrame())
+
+    assert result["category_shares"].empty
+    assert result["top_product_share"] == 0.0
+    assert result["top_products_share"] == 0.0

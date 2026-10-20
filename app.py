@@ -114,7 +114,7 @@ def make_dataframes(rows, valid_records, invalid_records):
 
 
 def summarize(filtered_df):
-    """Calculate the dashboard's metrics from the currently filtered rows."""
+    """Calculate metrics from the currently filtered sales rows."""
     if filtered_df.empty:
         return {
             "revenue": 0.0,
@@ -122,18 +122,23 @@ def summarize(filtered_df):
             "transactions": 0,
             "products": 0,
             "average": 0.0,
+            "orders": 0,
+            "average_order_value": 0.0,
         }
 
     revenue = float(filtered_df["revenue"].sum())
     count = len(filtered_df)
+    order_count = int(filtered_df["order_id"].nunique())
+
     return {
         "revenue": revenue,
         "units": int(filtered_df["quantity"].sum()),
         "transactions": count,
         "products": int(filtered_df["product"].nunique()),
-        "average": revenue / count if count else 0.0,
+        "average": revenue / count,
+        "orders": order_count,
+        "average_order_value": revenue / order_count if order_count else 0.0,
     }
-
 
 def group_revenue(filtered_df, group_column):
     """Return a chart-ready dataframe sorted by revenue descending."""
@@ -145,6 +150,48 @@ def group_revenue(filtered_df, group_column):
         .sort_values("revenue", ascending=False)
     )
 
+def calculate_business_insights(filtered_df, top_products_count=5):
+    """Calculate category revenue shares and product revenue concentration."""
+    if filtered_df.empty:
+        return {
+            "category_shares": pd.DataFrame(
+                columns=["category", "revenue", "share_percent"]
+            ),
+            "top_product_share": 0.0,
+            "top_products_share": 0.0,
+        }
+
+    total_revenue = float(filtered_df["revenue"].sum())
+
+    category_shares = group_revenue(filtered_df, "category")
+    if total_revenue > 0:
+        category_shares["share_percent"] = (
+            category_shares["revenue"] / total_revenue * 100
+        )
+    else:
+        category_shares["share_percent"] = 0.0
+
+    product_revenue = group_revenue(filtered_df, "product")
+    if total_revenue > 0:
+        top_product_share = (
+            float(product_revenue.iloc[0]["revenue"]) / total_revenue * 100
+        )
+        top_products_share = (
+            float(
+                product_revenue.head(top_products_count)["revenue"].sum()
+            )
+            / total_revenue
+            * 100
+        )
+    else:
+        top_product_share = 0.0
+        top_products_share = 0.0
+
+    return {
+        "category_shares": category_shares,
+        "top_product_share": top_product_share,
+        "top_products_share": top_products_share,
+    }
 
 def main():
     st.title(f"📊 {REPORT_TITLE}")
@@ -242,7 +289,7 @@ def main():
             ]
 
     metrics = summarize(filtered_df)
-    first_row = st.columns(5)
+    first_row = st.columns(6)
     first_row[0].metric("Total revenue", money(metrics["revenue"]))
     first_row[1].metric("Units sold", f"{metrics['units']:,}")
     first_row[2].metric("Valid order lines", f"{metrics['transactions']:,}")
@@ -250,6 +297,10 @@ def main():
     first_row[4].metric(
         "Average revenue per sales line",
         money(metrics["average"]),
+    )
+    first_row[5].metric(
+        "Average order value",
+        money(metrics["average_order_value"]),
     )
 
     st.subheader("Data quality")
@@ -312,6 +363,10 @@ def main():
             .sort_values(ascending=False)
         )
         category_revenue_values = group_revenue(filtered_df, "category")
+        business_metrics = calculate_business_insights(
+            filtered_df,
+            TOP_PRODUCTS_COUNT,
+        )
 
         daily_values = (
             filtered_df.groupby("order_date_parsed")["revenue"]
@@ -333,11 +388,9 @@ def main():
             product_revenue_values.head(TOP_PRODUCTS_COUNT)["revenue"].sum()
         )
 
-        top_products_share = (
-            top_products_revenue / total_revenue * 100
-            if total_revenue > 0
-            else 0.0
-        )
+        top_products_share = business_metrics["top_products_share"]
+        top_product_share = business_metrics["top_product_share"]
+        
         insight_cols = st.columns(2)
 
         with insight_cols[0]:
@@ -374,10 +427,35 @@ def main():
             )
 
         st.markdown(
+            f"- **Top product's share of revenue:** "
+            f"{top_product_share:.1f}%"
+        )
+        st.markdown(
             f"- **Top {TOP_PRODUCTS_COUNT} products' share of revenue:** "
             f"{top_products_share:.1f}%"
         )
 
+        st.markdown("**Revenue share by category**")
+        category_shares = business_metrics["category_shares"].copy()
+        category_shares = category_shares.rename(
+            columns={
+                "category": "Category",
+                "revenue": "Revenue",
+                "share_percent": "Revenue share (%)",
+            }
+        )
+        category_shares["Revenue"] = category_shares["Revenue"].map(money)
+        category_shares["Revenue share (%)"] = (
+            category_shares["Revenue share (%)"].map(
+                lambda value: f"{value:.1f}%"
+            )
+        )
+        st.dataframe(
+            category_shares,
+            use_container_width=True,
+            hide_index=True,
+        )
+                
     st.subheader("Detailed reports")
     product_report = group_revenue(filtered_df, "product")
     if not filtered_df.empty:

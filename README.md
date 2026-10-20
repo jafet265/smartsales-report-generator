@@ -136,3 +136,30 @@ Output files:
 
 
 Note: The example's unit count and revenue are illustrative placeholders. Your implementation should calculate the actual results from the supplied data rather than hard-code them.
+
+## Stage 7 — Interactive Streamlit dashboard
+
+Stage 7 adds an interactive dashboard for exploring validated sales data.
+
+### Start the dashboard
+
+From the repository root, install the project dependencies and run:
+
+```bash
+python -m pip install -r requirements.txt
+streamlit run app.py
+```
+
+Streamlit will print a local URL in the terminal. Open that URL to use the dashboard. In GitHub Codespaces, use the forwarded port/browser link shown by Codespaces if prompted.
+
+### Dashboard features
+
+- KPI cards for total revenue, units sold, valid order lines, distinct products, and average revenue per valid line.
+- Filters for product, category, and order-date range.
+- Revenue charts by product, category, and date.
+- Business insights for the top-revenue product, most-sold product, top-revenue category, and highest-revenue date.
+- Data-quality counts and a table of invalid records with validation explanations.
+- A table of validated sales records and a product summary.
+- CSV upload support for analyzing a new sales file without changing the source code.
+
+The dashboard reuses `src/smartsales_stage3.py` for reading and validation. Invalid records are excluded from the sales metrics and charts. The supplied sample CSV is loaded by default.

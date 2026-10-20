@@ -1,0 +1,17 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+.venv/
+venv/
+
+# Environment variables and secrets
+.env
+
+# Generated reports and charts
+reports/
+src/reports/
+
+# Streamlit settings
+.streamlit/secrets.toml

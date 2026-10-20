@@ -1,0 +1,618 @@
+import csv
+from decimal import Decimal
+
+from src.smartsales_stage3 import (
+    read_sales_file,
+    prepare_records,
+    calculate_summary,
+    find_duplicate_ids,
+)
+
+def test_basic_math():
+    """Check that Python calculates a simple revenue amount correctly."""
+    quantity = 4
+    unit_price = 5.00
+
+    revenue = quantity * unit_price
+
+    assert revenue == 20.00
+
+
+def test_read_sales_file_reads_csv(tmp_path):
+    """Check that a CSV file is read correctly."""
+    csv_file = tmp_path / "sales.csv"
+
+    with csv_file.open("w", newline="", encoding="utf-8") as file:
+        writer = csv.DictWriter(
+            file,
+            fieldnames=[
+                "order_id",
+                "order_date",
+                "product",
+                "category",
+                "quantity",
+                "unit_price",
+            ],
+        )
+        writer.writeheader()
+        writer.writerow({
+            "order_id": "1001",
+            "order_date": "2026-10-01",
+            "product": "Notebook",
+            "category": "Accessories",
+            "quantity": "2",
+            "unit_price": "5.00",
+        })
+
+    rows = read_sales_file(csv_file)
+
+    assert rows is not None
+    assert len(rows) == 1
+    assert rows[0][0] == 2
+    assert rows[0][1]["product"] == "Notebook"
+    assert rows[0][1]["quantity"] == "2"
+
+
+def test_read_sales_file_rejects_missing_columns(tmp_path):
+    """Check that a CSV missing required columns is rejected."""
+    csv_file = tmp_path / "incomplete.csv"
+    csv_file.write_text(
+        "order_id,product\n1001,Notebook\n",
+        encoding="utf-8",
+    )
+
+    rows = read_sales_file(csv_file)
+
+    assert rows is None
+
+
+def test_prepare_records_separates_valid_and_invalid_rows(tmp_path):
+    """Check that valid sales are accepted and invalid sales are rejected."""
+    csv_file = tmp_path / "validation.csv"
+
+    with csv_file.open("w", newline="", encoding="utf-8") as file:
+        writer = csv.DictWriter(
+            file,
+            fieldnames=[
+                "order_id",
+                "order_date",
+                "product",
+                "category",
+                "quantity",
+                "unit_price",
+            ],
+        )
+        writer.writeheader()
+
+        # Valid sales record.
+        writer.writerow({
+            "order_id": "1001",
+            "order_date": "2026-10-01",
+            "product": "Notebook",
+            "category": "Accessories",
+            "quantity": "2",
+            "unit_price": "5.00",
+        })
+
+        # Invalid record: quantity cannot be negative.
+        writer.writerow({
+            "order_id": "1002",
+            "order_date": "2026-10-02",
+            "product": "Pen",
+            "category": "Accessories",
+            "quantity": "-3",
+            "unit_price": "1.50",
+        })
+
+    rows = read_sales_file(csv_file)
+    assert rows is not None
+
+    valid_records, invalid_records = prepare_records(rows)
+
+    assert len(valid_records) == 1
+    assert len(invalid_records) == 1
+
+    assert valid_records[0]["product"] == "Notebook"
+    assert valid_records[0]["quantity"] == 2
+    assert valid_records[0]["unit_price"] == Decimal("5.00")
+
+    assert "Quantity must be a positive integer" in invalid_records[0]["errors"]
+
+
+def test_calculate_summary_returns_correct_totals():
+    """Check total revenue, units sold, and revenue by product."""
+    valid_records = [
+        {
+            "product": "Notebook",
+            "quantity": 2,
+            "unit_price": Decimal("5.00"),
+        },
+        {
+            "product": "Pen",
+            "quantity": 3,
+            "unit_price": Decimal("1.50"),
+        },
+        {
+            "product": "Backpack",
+            "quantity": 1,
+            "unit_price": Decimal("25.00"),
+        },
+    ]
+
+    total_revenue, total_units, revenue_by_product = calculate_summary(
+        valid_records
+    )
+
+    assert total_revenue == Decimal("39.50")
+    assert total_units == 6
+    assert revenue_by_product["Notebook"] == Decimal("10.00")
+    assert revenue_by_product["Pen"] == Decimal("4.50")
+    assert revenue_by_product["Backpack"] == Decimal("25.00")
+
+
+def test_calculate_summary_handles_empty_records():
+    """Check that an empty sales list produces zero totals."""
+    total_revenue, total_units, revenue_by_product = calculate_summary([])
+
+    assert total_revenue == Decimal("0.00")
+    assert total_units == 0
+    assert revenue_by_product == {}
+
+
+def test_calculate_summary_combines_revenue_for_same_product():
+    """Check that multiple sales of one product are added together."""
+    valid_records = [
+        {
+            "product": "Notebook",
+            "quantity": 2,
+            "unit_price": Decimal("5.00"),
+        },
+        {
+            "product": "Notebook",
+            "quantity": 4,
+            "unit_price": Decimal("5.00"),
+        },
+    ]
+
+    total_revenue, total_units, revenue_by_product = calculate_summary(
+        valid_records
+    )
+
+    assert total_revenue == Decimal("30.00")
+    assert total_units == 6
+    assert revenue_by_product["Notebook"] == Decimal("30.00")
+
+
+def test_invalid_records_are_excluded_from_revenue(tmp_path):
+    """Check that invalid sales are excluded from financial totals."""
+    import csv
+
+    csv_file = tmp_path / "mixed_sales.csv"
+
+    with csv_file.open("w", newline="", encoding="utf-8") as file:
+        writer = csv.DictWriter(
+            file,
+            fieldnames=[
+                "order_id",
+                "order_date",
+                "product",
+                "category",
+                "quantity",
+                "unit_price",
+            ],
+        )
+        writer.writeheader()
+
+        writer.writerow({
+            "order_id": "1001",
+            "order_date": "2026-10-01",
+            "product": "Notebook",
+            "category": "Accessories",
+            "quantity": "2",
+            "unit_price": "5.00",
+        })
+
+        writer.writerow({
+            "order_id": "1002",
+            "order_date": "2026-10-02",
+            "product": "Pen",
+            "category": "Accessories",
+            "quantity": "-3",
+            "unit_price": "100.00",
+        })
+
+    rows = read_sales_file(csv_file)
+    assert rows is not None
+
+    valid_records, invalid_records = prepare_records(rows)
+
+    total_revenue, total_units, revenue_by_product = calculate_summary(
+        valid_records
+    )
+
+    assert len(valid_records) == 1
+    assert len(invalid_records) == 1
+    assert total_revenue == Decimal("10.00")
+    assert total_units == 2
+    assert revenue_by_product == {"Notebook": Decimal("10.00")}
+
+
+def test_invalid_date_is_rejected(tmp_path):
+    """A row with an invalid date should be rejected."""
+    csv_file = tmp_path / "invalid_date.csv"
+    csv_file.write_text(
+        "order_id,order_date,product,category,quantity,unit_price\n"
+        "1001,not-a-date,Notebook,Accessories,2,5.00\n",
+        encoding="utf-8",
+    )
+
+    rows = read_sales_file(csv_file)
+    assert rows is not None
+
+    valid_records, invalid_records = prepare_records(rows)
+
+    assert len(valid_records) == 0
+    assert len(invalid_records) == 1
+    assert "date" in invalid_records[0]["errors"].lower()
+
+
+def test_zero_quantity_is_rejected(tmp_path):
+    """Quantity must be a positive integer."""
+    csv_file = tmp_path / "zero_quantity.csv"
+    csv_file.write_text(
+        "order_id,order_date,product,category,quantity,unit_price\n"
+        "1001,2026-10-01,Notebook,Accessories,0,5.00\n",
+        encoding="utf-8",
+    )
+
+    rows = read_sales_file(csv_file)
+    assert rows is not None
+
+    valid_records, invalid_records = prepare_records(rows)
+
+    assert len(valid_records) == 0
+    assert len(invalid_records) == 1
+    assert "quantity" in invalid_records[0]["errors"].lower()
+
+
+def test_invalid_unit_price_is_rejected(tmp_path):
+    """A non-numeric unit price should be rejected."""
+    csv_file = tmp_path / "invalid_price.csv"
+    csv_file.write_text(
+        "order_id,order_date,product,category,quantity,unit_price\n"
+        "1001,2026-10-01,Notebook,Accessories,2,abc\n",
+        encoding="utf-8",
+    )
+
+    rows = read_sales_file(csv_file)
+    assert rows is not None
+
+    valid_records, invalid_records = prepare_records(rows)
+
+    assert len(valid_records) == 0
+    assert len(invalid_records) == 1
+    assert "price" in invalid_records[0]["errors"].lower()
+
+
+def test_duplicate_order_ids_are_rejected(tmp_path):
+    """Every row sharing a duplicate order ID should be rejected."""
+    csv_file = tmp_path / "duplicate_ids.csv"
+    csv_file.write_text(
+        "order_id,order_date,product,category,quantity,unit_price\n"
+        "1001,2026-10-01,Notebook,Accessories,2,5.00\n"
+        "1001,2026-10-02,Pen,Accessories,3,1.50\n",
+        encoding="utf-8",
+    )
+
+    rows = read_sales_file(csv_file)
+    assert rows is not None
+
+    duplicate_ids = find_duplicate_ids(rows)
+    valid_records, invalid_records = prepare_records(rows)
+
+    assert "1001" in duplicate_ids
+    assert len(valid_records) == 0
+    assert len(invalid_records) == 2
+
+
+def test_invalid_category_is_rejected(tmp_path):
+    """An unsupported category should be rejected."""
+    csv_file = tmp_path / "invalid_category.csv"
+    csv_file.write_text(
+        "order_id,order_date,product,category,quantity,unit_price\n"
+        "1001,2026-10-01,Notebook,UnknownCategory,2,5.00\n",
+        encoding="utf-8",
+    )
+
+    rows = read_sales_file(csv_file)
+    assert rows is not None
+
+    valid_records, invalid_records = prepare_records(rows)
+
+    assert len(valid_records) == 0
+    assert len(invalid_records) == 1
+    assert "category" in invalid_records[0]["errors"].lower()
+
+
+from openpyxl import load_workbook
+
+from src.smartsales_stage3 import create_excel_report
+
+
+def test_excel_report_is_created(tmp_path):
+    """The report should be saved as an Excel workbook."""
+    output_file = tmp_path / "reports" / "test_report.xlsx"
+
+    rows = [
+        (2, {
+            "order_id": "1001",
+            "order_date": "2026-10-01",
+            "product": "Notebook",
+            "category": "Accessories",
+            "quantity": "2",
+            "unit_price": "5.00",
+        })
+    ]
+
+    valid_records = [
+        {
+            "order_id": "1001",
+            "order_date": "2026-10-01",
+            "product": "Notebook",
+            "category": "Accessories",
+            "quantity": 2,
+            "unit_price": Decimal("5.00"),
+        }
+    ]
+
+    invalid_records = []
+
+    report_path, total_revenue, total_units = create_excel_report(
+        rows,
+        valid_records,
+        invalid_records,
+        output_file,
+    )
+
+    assert report_path.exists()
+    assert report_path.suffix == ".xlsx"
+    assert total_revenue == Decimal("10.00")
+    assert total_units == 2
+
+
+def test_excel_report_has_expected_worksheets(tmp_path):
+    """The workbook should contain all three report worksheets."""
+    output_file = tmp_path / "test_report.xlsx"
+
+    rows = []
+    valid_records = []
+    invalid_records = []
+
+    create_excel_report(
+        rows,
+        valid_records,
+        invalid_records,
+        output_file,
+    )
+
+    workbook = load_workbook(output_file, read_only=True)
+
+    assert workbook.sheetnames == [
+        "Sales Summary",
+        "Product Revenue",
+        "Invalid Records",
+    ]
+
+    workbook.close()
+
+
+def test_excel_summary_contains_correct_totals(tmp_path):
+    """The summary worksheet should show correct revenue and unit totals."""
+    output_file = tmp_path / "summary_report.xlsx"
+
+    rows = [
+        (2, {
+            "order_id": "1001",
+            "order_date": "2026-10-01",
+            "product": "Notebook",
+            "category": "Accessories",
+            "quantity": "2",
+            "unit_price": "5.00",
+        }),
+        (3, {
+            "order_id": "1002",
+            "order_date": "2026-10-02",
+            "product": "Pen",
+            "category": "Accessories",
+            "quantity": "3",
+            "unit_price": "1.50",
+        }),
+    ]
+
+    valid_records = [
+        {
+            "order_id": "1001",
+            "order_date": "2026-10-01",
+            "product": "Notebook",
+            "category": "Accessories",
+            "quantity": 2,
+            "unit_price": Decimal("5.00"),
+        },
+        {
+            "order_id": "1002",
+            "order_date": "2026-10-02",
+            "product": "Pen",
+            "category": "Accessories",
+            "quantity": 3,
+            "unit_price": Decimal("1.50"),
+        },
+    ]
+
+    create_excel_report(rows, valid_records, [], output_file)
+
+    workbook = load_workbook(output_file, data_only=True)
+    summary = workbook["Sales Summary"]
+
+    assert summary["B2"].value == 2
+    assert summary["B3"].value == 2
+    assert summary["B4"].value == 0
+    assert summary["B5"].value == 5
+    assert summary["B6"].value == 14.5
+
+    workbook.close()
+
+
+def test_invalid_records_appear_in_excel_report(tmp_path):
+    """Invalid rows should be listed but excluded from sales totals."""
+    output_file = tmp_path / "invalid_records_report.xlsx"
+
+    rows = [
+        (2, {
+            "order_id": "1001",
+            "order_date": "2026-10-01",
+            "product": "Notebook",
+            "category": "Accessories",
+            "quantity": "2",
+            "unit_price": "5.00",
+        }),
+        (3, {
+            "order_id": "1002",
+            "order_date": "2026-10-02",
+            "product": "Pen",
+            "category": "Accessories",
+            "quantity": "-3",
+            "unit_price": "100.00",
+        }),
+    ]
+
+    valid_records = [
+        {
+            "order_id": "1001",
+            "order_date": "2026-10-01",
+            "product": "Notebook",
+            "category": "Accessories",
+            "quantity": 2,
+            "unit_price": Decimal("5.00"),
+        }
+    ]
+
+    invalid_records = [
+        {
+            "csv_row": 3,
+            "order_id": "1002",
+            "order_date": "2026-10-02",
+            "product": "Pen",
+            "category": "Accessories",
+            "quantity": "-3",
+            "unit_price": "100.00",
+            "errors": "Quantity must be a positive integer",
+        }
+    ]
+
+    create_excel_report(
+        rows,
+        valid_records,
+        invalid_records,
+        output_file,
+    )
+
+    workbook = load_workbook(output_file, data_only=True)
+
+    summary = workbook["Sales Summary"]
+    errors_sheet = workbook["Invalid Records"]
+
+    # Only the valid order contributes to revenue.
+    assert summary["B6"].value == 10.0
+    assert summary["B3"].value == 1
+    assert summary["B4"].value == 1
+
+    # The invalid order should still appear in the error worksheet.
+    assert errors_sheet["B2"].value == "1002"
+    assert errors_sheet["D2"].value == "Pen"
+    assert "Quantity must be a positive integer" in errors_sheet["H2"].value
+
+    workbook.close()
+
+
+def test_empty_csv_file_is_rejected(tmp_path):
+    """An empty CSV file should return None."""
+    csv_file = tmp_path / "empty.csv"
+    csv_file.write_text("", encoding="utf-8")
+
+    rows = read_sales_file(csv_file)
+
+    assert rows is None
+
+
+def test_csv_with_header_only_returns_no_records(tmp_path):
+    """A CSV with valid headers but no data should return an empty list."""
+    csv_file = tmp_path / "header_only.csv"
+    csv_file.write_text(
+        "order_id,order_date,product,category,quantity,unit_price\n",
+        encoding="utf-8",
+    )
+
+    rows = read_sales_file(csv_file)
+
+    assert rows == []
+
+
+def test_negative_unit_price_is_rejected(tmp_path):
+    """A negative unit price must not be accepted."""
+    csv_file = tmp_path / "negative_price.csv"
+    csv_file.write_text(
+        "order_id,order_date,product,category,quantity,unit_price\n"
+        "1001,2026-10-01,Notebook,Accessories,2,-5.00\n",
+        encoding="utf-8",
+    )
+
+    rows = read_sales_file(csv_file)
+    assert rows is not None
+
+    valid_records, invalid_records = prepare_records(rows)
+
+    assert len(valid_records) == 0
+    assert len(invalid_records) == 1
+    assert "price" in invalid_records[0]["errors"].lower()
+
+
+def test_all_rows_with_duplicate_ids_are_invalid(tmp_path):
+    """Neither row should be accepted when both have the same order ID."""
+    csv_file = tmp_path / "duplicate_orders.csv"
+    csv_file.write_text(
+        "order_id,order_date,product,category,quantity,unit_price\n"
+        "1001,2026-10-01,Notebook,Accessories,2,5.00\n"
+        "1001,2026-10-02,Pen,Accessories,3,1.50\n",
+        encoding="utf-8",
+    )
+
+    rows = read_sales_file(csv_file)
+    assert rows is not None
+
+    valid_records, invalid_records = prepare_records(rows)
+
+    assert len(valid_records) == 0
+    assert len(invalid_records) == 2
+
+    for record in invalid_records:
+        assert "duplicate" in record["errors"].lower()
+
+
+def test_large_revenue_is_calculated_accurately():
+    """Large monetary totals should retain exact decimal arithmetic."""
+    records = [
+        {
+            "order_id": "1001",
+            "order_date": "2026-10-01",
+            "product": "Industrial Equipment",
+            "category": "Electronics",
+            "quantity": 1000000,
+            "unit_price": Decimal("999999.99"),
+        }
+    ]
+
+    total_revenue, total_units, revenue_by_product = calculate_summary(records)
+
+    assert total_revenue == Decimal("999999990000.00")
+    assert total_units == 1000000
+    assert revenue_by_product["Industrial Equipment"] == Decimal("999999990000.00")

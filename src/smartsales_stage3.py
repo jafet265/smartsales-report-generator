@@ -37,6 +37,7 @@ VALID_CATEGORIES = {
     "Storage",
     "Furniture",
     "Office Supplies",
+    "Stationery",
 }
 
 DEFAULT_INPUT = Path("data/raw/sales_data_1500_with_invalid.csv")

@@ -13,14 +13,16 @@ The Excel report is saved to:
 import csv
 import sys
 from collections import Counter
-from datetime import datetime
+from datetime import date, datetime
 from decimal import Decimal, InvalidOperation
 from pathlib import Path
 
-from openpyxl import Workbook
+from openpyxl import Workbook, load_workbook
 from openpyxl.styles import Alignment, Font, PatternFill
 from openpyxl.utils import get_column_letter
+from openpyxl.utils.exceptions import InvalidFileException
 
+from zipfile import BadZipFile
 
 REQUIRED_COLUMNS = {
     "order_id",
@@ -44,54 +46,137 @@ DEFAULT_INPUT = Path("data/raw/sales_data_1500_with_invalid.csv")
 DEFAULT_OUTPUT = Path("reports/smartsales_report.xlsx")
 
 
+
 def read_sales_file(filename):
-    """Read a CSV file and return its rows with their original row numbers."""
+    """Read a CSV or Excel file and return rows with their original row numbers."""
     path = Path(filename)
 
     if not path.is_file():
-        print(f"Error: CSV file not found: {path}")
+        print(f"Error: Sales file not found: {path}")
+        return None
+
+    # Only CSV and modern Excel workbooks are supported.
+    if path.suffix.lower() not in {".csv", ".xlsx"}:
+        print("Error: Unsupported file type. Use a .csv or .xlsx file.")
         return None
 
     try:
-        with path.open("r", encoding="utf-8-sig", newline="") as file:
-            reader = csv.DictReader(file)
+        # Read CSV files.
+        if path.suffix.lower() == ".csv":
+            with path.open("r", encoding="utf-8-sig", newline="") as file:
+                reader = csv.DictReader(file)
 
-            if not reader.fieldnames:
-                print("Error: The CSV file has no header row.")
+                if not reader.fieldnames:
+                    print("Error: The CSV file has no header row.")
+                    return None
+
+                headers = [name.strip() for name in reader.fieldnames]
+                reader.fieldnames = headers
+
+                missing_columns = REQUIRED_COLUMNS - set(headers)
+                if missing_columns:
+                    print(
+                        "Error: Missing required columns:",
+                        ", ".join(sorted(missing_columns)),
+                    )
+                    return None
+
+                rows = []
+
+                for row_number, row in enumerate(reader, start=2):
+                    if None in row:
+                        print(
+                            f"Error: CSV row {row_number} has more values "
+                            "than expected."
+                        )
+                        return None
+
+                    clean_row = {
+                        key.strip(): (value or "").strip()
+                        for key, value in row.items()
+                    }
+                    rows.append((row_number, clean_row))
+
+                return rows
+
+        # Read Excel files.
+        workbook = load_workbook(
+            path,
+            read_only=True,
+            data_only=True,
+        )
+
+        try:
+            worksheet = workbook.active
+            header_row = next(
+                worksheet.iter_rows(values_only=True),
+                None,
+            )
+
+            if not header_row:
+                print("Error: The Excel file has no header row.")
                 return None
 
-            # Remove accidental spaces around column names.
-            reader.fieldnames = [name.strip() for name in reader.fieldnames]
-            missing_columns = REQUIRED_COLUMNS - set(reader.fieldnames)
+            headers = [
+                str(value).strip() if value is not None else ""
+                for value in header_row
+            ]
 
+            if not any(headers):
+                print("Error: The Excel file has no header row.")
+                return None
+
+            missing_columns = REQUIRED_COLUMNS - set(headers)
             if missing_columns:
-                print("Error: Missing required columns:", ", ".join(sorted(missing_columns)))
+                print(
+                    "Error: Missing required columns:",
+                    ", ".join(sorted(missing_columns)),
+                )
                 return None
 
             rows = []
 
-            for row_number, row in enumerate(reader, start=2):
-                # Reject rows containing more values than the header defines.
-                if None in row:
+            for row_number, values in enumerate(
+                worksheet.iter_rows(min_row=2, values_only=True),
+                start=2,
+            ):
+                # Ignore completely empty worksheet rows.
+                if all(value is None for value in values):
+                    continue
+
+                # Reject data entered beyond the header columns.
+                if any(value is not None for value in values[len(headers):]):
                     print(
-                        f"Error: CSV row {row_number} has more values "
+                        f"Error: Excel row {row_number} has more values "
                         "than expected."
                     )
                     return None
 
-                # Treat missing cell values as empty strings.
-                # The normal validation function can then reject the row.
-                clean_row = {
-                    key.strip(): (value or "").strip()
-                    for key, value in row.items()
-                }
+                clean_row = {}
+
+                for index, header in enumerate(headers):
+                    value = values[index] if index < len(values) else None
+
+                    # Convert Excel date cells into the expected date format.
+                    if isinstance(value, (datetime, date)):
+                        value = value.strftime("%Y-%m-%d")
+                    elif value is None:
+                        value = ""
+                    else:
+                        value = str(value).strip()
+
+                    clean_row[header] = value
 
                 rows.append((row_number, clean_row))
 
             return rows
 
-    except (OSError, csv.Error, UnicodeError) as error:
-        print(f"Error reading CSV file: {error}")
+        finally:
+            workbook.close()
+
+    except (OSError, csv.Error, UnicodeError, ValueError,
+            BadZipFile, InvalidFileException) as error:
+        print(f"Error reading sales file: {error}")
         return None
 
 

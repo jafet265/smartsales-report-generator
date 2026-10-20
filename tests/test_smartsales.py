@@ -1,5 +1,7 @@
 import csv
 from decimal import Decimal
+from datetime import datetime
+from openpyxl import Workbook
 
 from src.smartsales_stage3 import (
     read_sales_file,
@@ -690,3 +692,73 @@ def test_non_finite_unit_prices_are_rejected(tmp_path):
     assert total_revenue == Decimal("0.00")
     assert total_units == 0
     assert revenue_by_product == {}
+
+
+def test_read_sales_file_reads_excel(tmp_path):
+    """Check that an Excel workbook is read correctly."""
+    excel_file = tmp_path / "sales.xlsx"
+    workbook = Workbook()
+    worksheet = workbook.active
+
+    worksheet.append([
+        "order_id",
+        "order_date",
+        "product",
+        "category",
+        "quantity",
+        "unit_price",
+    ])
+    worksheet.append([
+        1001,
+        datetime(2026, 10, 1),
+        "Notebook",
+        "Accessories",
+        2,
+        5.00,
+    ])
+
+    workbook.save(excel_file)
+    workbook.close()
+
+    rows = read_sales_file(excel_file)
+
+    assert rows is not None
+    assert len(rows) == 1
+    assert rows[0][0] == 2
+    assert rows[0][1]["order_id"] == "1001"
+    assert rows[0][1]["order_date"] == "2026-10-01"
+    assert rows[0][1]["product"] == "Notebook"
+    assert rows[0][1]["quantity"] == "2"
+
+
+def test_read_sales_file_rejects_excel_missing_columns(tmp_path, capsys):
+    """Check that an Excel file with missing columns is rejected."""
+    excel_file = tmp_path / "incomplete.xlsx"
+    workbook = Workbook()
+    worksheet = workbook.active
+
+    worksheet.append(["order_id", "product"])
+    worksheet.append([1001, "Notebook"])
+
+    workbook.save(excel_file)
+    workbook.close()
+
+    rows = read_sales_file(excel_file)
+
+    captured = capsys.readouterr()
+
+    assert rows is None
+    assert "Missing required columns" in captured.out
+
+
+def test_read_sales_file_rejects_unsupported_extension(tmp_path, capsys):
+    """Check that unsupported file extensions are rejected."""
+    unsupported_file = tmp_path / "sales.xls"
+    unsupported_file.write_text("sample", encoding="utf-8")
+
+    rows = read_sales_file(unsupported_file)
+
+    captured = capsys.readouterr()
+
+    assert rows is None
+    assert "Unsupported file type" in captured.out

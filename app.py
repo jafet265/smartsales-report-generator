@@ -44,7 +44,12 @@ def load_rows(uploaded_file):
     # the dashboard uses exactly the same header and row-reading behavior.
     temporary_path = None
     try:
-        with tempfile.NamedTemporaryFile(suffix=".csv", delete=False) as temp_file:
+        file_extension = Path(uploaded_file.name).suffix.lower()
+
+        with tempfile.NamedTemporaryFile(
+            suffix=file_extension,
+            delete=False,
+        ) as temp_file:
             temp_file.write(uploaded_file.getvalue())
             temporary_path = Path(temp_file.name)
         rows = read_sales_file(temporary_path)
@@ -116,9 +121,9 @@ def main():
     with st.sidebar:
         st.header("Data source")
         uploaded_file = st.file_uploader(
-            "Upload a sales CSV file",
-            type=["csv"],
-            help="The CSV must contain the six required SmartSales columns.",
+            "Upload a sales file",
+            type=["csv", "xlsx"],
+            help="Upload a CSV or Excel file containing the six required SmartSales columns.",
         )
 
     rows, input_label = load_rows(uploaded_file)

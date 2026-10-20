@@ -69,13 +69,23 @@ def read_sales_file(filename):
                 return None
 
             rows = []
+
             for row_number, row in enumerate(reader, start=2):
-                # Also remove accidental spaces around each cell value.
+                # Reject rows containing more values than the header defines.
+                if None in row:
+                    print(
+                        f"Error: CSV row {row_number} has more values "
+                        "than expected."
+                    )
+                    return None
+
+                # Treat missing cell values as empty strings.
+                # The normal validation function can then reject the row.
                 clean_row = {
-                    key.strip(): (value.strip() if value is not None else "")
+                    key.strip(): (value or "").strip()
                     for key, value in row.items()
-                    if key is not None
                 }
+
                 rows.append((row_number, clean_row))
 
             return rows

@@ -616,3 +616,77 @@ def test_large_revenue_is_calculated_accurately():
     assert total_revenue == Decimal("999999990000.00")
     assert total_units == 1000000
     assert revenue_by_product["Industrial Equipment"] == Decimal("999999990000.00")
+
+
+def test_csv_row_with_missing_value_is_handled(tmp_path):
+    """A missing cell should not crash CSV loading."""
+    csv_file = tmp_path / "missing_value.csv"
+
+    csv_file.write_text(
+        "order_id,order_date,product,category,quantity,unit_price\n"
+        "1001,2026-10-01,Notebook,Accessories,2\n",
+        encoding="utf-8",
+    )
+
+    rows = read_sales_file(csv_file)
+
+    assert rows is not None
+    assert len(rows) == 1
+    assert rows[0][1]["unit_price"] == ""
+
+    valid_records, invalid_records = prepare_records(rows)
+
+    assert len(valid_records) == 0
+    assert len(invalid_records) == 1
+    assert "price" in invalid_records[0]["errors"].lower()
+
+
+
+def test_csv_row_with_extra_value_is_rejected(
+    tmp_path, capsys
+):
+    """A row with extra values should be rejected clearly."""
+    csv_file = tmp_path / "extra_value.csv"
+
+    csv_file.write_text(
+        "order_id,order_date,product,category,quantity,unit_price\n"
+        "1001,2026-10-01,Notebook,Accessories,2,5.00,EXTRA\n",
+        encoding="utf-8",
+    )
+
+    rows = read_sales_file(csv_file)
+    captured = capsys.readouterr()
+
+    assert rows is None
+    assert "row 2" in captured.out.lower()
+    assert "more values than expected" in captured.out.lower()
+
+
+def test_non_finite_unit_prices_are_rejected(tmp_path):
+    """NaN and infinite prices must never enter revenue totals."""
+    csv_file = tmp_path / "non_finite_prices.csv"
+
+    csv_file.write_text(
+        "order_id,order_date,product,category,quantity,unit_price\n"
+        "1001,2026-10-01,Notebook,Accessories,2,NaN\n"
+        "1002,2026-10-01,Pen,Accessories,1,Infinity\n"
+        "1003,2026-10-01,Folder,Accessories,3,-Infinity\n",
+        encoding="utf-8",
+    )
+
+    rows = read_sales_file(csv_file)
+
+    assert rows is not None
+
+    valid_records, invalid_records = prepare_records(rows)
+
+    assert len(valid_records) == 0
+    assert len(invalid_records) == 3
+
+    total_revenue, total_units, revenue_by_product = (
+        calculate_summary(valid_records)
+    )
+
+    assert total_revenue == Decimal("0.00")
+    assert total_units == 0
+    assert revenue_by_product == {}

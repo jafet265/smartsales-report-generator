@@ -11,6 +11,7 @@ The Excel report is saved to:
 """
 
 import csv
+import logging
 import sys
 from collections import Counter
 from datetime import date, datetime
@@ -400,43 +401,92 @@ def create_excel_report(rows, valid_records, invalid_records, output_file):
 
     output_path = Path(output_file)
     output_path.parent.mkdir(parents=True, exist_ok=True)
+
+    # Save the Excel report.
     workbook.save(output_path)
+
+    # Verify that the report was created successfully.
+    if not output_path.is_file():
+        raise OSError(f"Excel report was not created: {output_path}")
+
+    if output_path.stat().st_size == 0:
+        raise OSError(f"Excel report is empty: {output_path}")
+
+    logging.info("Excel report created successfully: %s", output_path)
+
     return output_path, total_revenue, total_units
 
 
 def main():
     """Run validation and create the Excel report."""
-    input_file = Path(sys.argv[1]) if len(sys.argv) > 1 else DEFAULT_INPUT
 
-    if len(sys.argv) > 2:
-        output_file = Path(sys.argv[2])
-    else:
-        output_file = DEFAULT_OUTPUT
-
-    rows = read_sales_file(input_file)
-    if rows is None:
-        return
-
-    valid_records, invalid_records = prepare_records(rows)
-    report_path, total_revenue, total_units = create_excel_report(
-        rows, valid_records, invalid_records, output_file
+    # Configure logging for the terminal and GitHub Actions.
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s - %(levelname)s - %(message)s",
     )
 
-    print("\nSmartSales - Excel Report Created")
-    print("-" * 45)
-    print(f"Input file:       {input_file}")
-    print(f"Total records:    {len(rows)}")
-    print(f"Valid records:    {len(valid_records)}")
-    print(f"Invalid records:  {len(invalid_records)}")
-    print(f"Total units sold: {total_units:,}")
-    print(f"Total revenue:    ${total_revenue:,.2f}")
-    print(f"Excel report:     {report_path}")
-    print("\nThe report contains three worksheets:")
-    print("  1. Sales Summary")
-    print("  2. Product Revenue")
-    print("  3. Invalid Records")
-    print("Only valid records are included in sales calculations.")
+    input_file = (
+        Path(sys.argv[1]) if len(sys.argv) > 1 else DEFAULT_INPUT
+    )
+
+    output_file = (
+        Path(sys.argv[2]) if len(sys.argv) > 2 else DEFAULT_OUTPUT
+    )
+
+    logging.info("SmartSales report generation started.")
+    logging.info("Input file: %s", input_file)
+    logging.info("Output file: %s", output_file)
+
+    # Read the sales data.
+    rows = read_sales_file(input_file)
+
+    if rows is None:
+        logging.error("Unable to read the input file: %s", input_file)
+        return 1
+
+    try:
+        # Validate records and separate valid from invalid data.
+        valid_records, invalid_records = prepare_records(rows)
+
+        # Generate and verify the Excel report.
+        report_path, total_revenue, total_units = create_excel_report(
+            rows,
+            valid_records,
+            invalid_records,
+            output_file,
+        )
+
+        # Display the report summary.
+        print("\nSmartSales - Excel Report Created")
+        print("-" * 45)
+        print(f"Input file:       {input_file}")
+        print(f"Total records:    {len(rows)}")
+        print(f"Valid records:    {len(valid_records)}")
+        print(f"Invalid records:  {len(invalid_records)}")
+        print(f"Total units sold: {total_units:,}")
+        print(f"Total revenue:    ${total_revenue:,.2f}")
+        print(f"Excel report:     {report_path}")
+        print("\nThe report contains three worksheets:")
+        print("  1. Sales Summary")
+        print("  2. Product Revenue")
+        print("  3. Invalid Records")
+        print("Only valid records are included in sales calculations.")
+
+        logging.info(
+            "Processing completed. Total records: %d, valid: %d, invalid: %d",
+            len(rows),
+            len(valid_records),
+            len(invalid_records),
+        )
+        logging.info("SmartSales report generation finished successfully.")
+
+        return 0
+
+    except Exception:
+        logging.exception("Report generation failed.")
+        return 1
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

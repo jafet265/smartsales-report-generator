@@ -241,7 +241,10 @@ def main():
     first_row[1].metric("Units sold", f"{metrics['units']:,}")
     first_row[2].metric("Valid order lines", f"{metrics['transactions']:,}")
     first_row[3].metric("Distinct products", f"{metrics['products']:,}")
-    first_row[4].metric("Avg. revenue / line", money(metrics["average"]))
+    first_row[4].metric(
+        "Average revenue per sales line",
+        money(metrics["average"]),
+    )
 
     st.subheader("Data quality")
     quality_cols = st.columns(3)
@@ -286,31 +289,88 @@ def main():
         )
         st.line_chart(daily_revenue, y_label="Revenue (USD)")
 
+    st.subheader("Detailed reports")
+
     st.subheader("Business insights")
+
     if filtered_df.empty:
-        st.info("Choose filters that include valid sales records to see business insights.")
+        st.info(
+            "Choose filters that include valid sales records "
+            "to see business insights."
+        )
     else:
-        insight_cols = st.columns(2)
         product_revenue_values = group_revenue(filtered_df, "product")
         product_units = (
-            filtered_df.groupby("product")["quantity"].sum()
+            filtered_df.groupby("product")["quantity"]
+            .sum()
             .sort_values(ascending=False)
         )
         category_revenue_values = group_revenue(filtered_df, "category")
+
         daily_values = (
-            filtered_df.groupby("order_date_parsed")["revenue"].sum()
+            filtered_df.groupby("order_date_parsed")["revenue"]
+            .sum()
             .sort_values(ascending=False)
         )
+
+        # Identify the top and lowest performers.
+        best_product = product_revenue_values.iloc[0]
+        lowest_product = product_revenue_values.iloc[-1]
+        best_units_product = product_units.index[0]
+        best_category = category_revenue_values.iloc[0]
+        best_day = daily_values.index[0]
+        lowest_day = daily_values.index[-1]
+
+        # Calculate how much revenue comes from the top five products.
+        total_revenue = float(product_revenue_values["revenue"].sum())
+        top_five_revenue = float(
+            product_revenue_values.head(5)["revenue"].sum()
+        )
+        top_five_share = (
+            top_five_revenue / total_revenue * 100
+            if total_revenue > 0
+            else 0.0
+        )
+
+        insight_cols = st.columns(2)
+
         with insight_cols[0]:
-            best_product = product_revenue_values.iloc[0]
-            best_units_product = product_units.index[0]
-            st.markdown(f"- **Highest-revenue product:** {best_product['product']} ({money(best_product['revenue'])})")
-            st.markdown(f"- **Most units sold:** {best_units_product} ({int(product_units.iloc[0]):,} units)")
+            st.markdown(
+                f"- **Highest-revenue product:** "
+                f"{best_product['product']} "
+                f"({money(best_product['revenue'])})"
+            )
+            st.markdown(
+                f"- **Lowest-revenue product:** "
+                f"{lowest_product['product']} "
+                f"({money(lowest_product['revenue'])})"
+            )
+            st.markdown(
+                f"- **Most units sold:** {best_units_product} "
+                f"({int(product_units.iloc[0]):,} units)"
+            )
+
         with insight_cols[1]:
-            best_category = category_revenue_values.iloc[0]
-            best_day = daily_values.index[0]
-            st.markdown(f"- **Highest-revenue category:** {best_category['category']} ({money(best_category['revenue'])})")
-            st.markdown(f"- **Highest-revenue date:** {best_day:%B %d, %Y} ({money(daily_values.iloc[0])})")
+            st.markdown(
+                f"- **Highest-revenue category:** "
+                f"{best_category['category']} "
+                f"({money(best_category['revenue'])})"
+            )
+            st.markdown(
+                f"- **Highest-revenue date:** "
+                f"{best_day:%B %d, %Y} "
+                f"({money(daily_values.loc[best_day])})"
+            )
+            st.markdown(
+                f"- **Lowest-revenue date:** "
+                f"{lowest_day:%B %d, %Y} "
+                f"({money(daily_values.loc[lowest_day])})"
+            )
+
+        st.markdown(
+            f"- **Top five products' share of revenue:** "
+            f"{top_five_share:.1f}%"
+        )
 
     st.subheader("Detailed reports")
     product_report = group_revenue(filtered_df, "product")

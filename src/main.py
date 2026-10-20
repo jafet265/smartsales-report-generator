@@ -1,4 +1,3 @@
-
 import csv
 from decimal import Decimal, InvalidOperation
 from pathlib import Path

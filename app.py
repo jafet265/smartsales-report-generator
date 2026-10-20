@@ -17,7 +17,11 @@ import tempfile
 import pandas as pd
 import streamlit as st
 
-from src.smartsales_stage3 import prepare_records, read_sales_file
+from src.smartsales_stage3 import (
+    create_excel_report,
+    prepare_records,
+    read_sales_file,
+)
 
 
 PROJECT_ROOT = Path(__file__).resolve().parent
@@ -54,6 +58,31 @@ def load_rows(uploaded_file):
             temporary_path = Path(temp_file.name)
         rows = read_sales_file(temporary_path)
         return rows, uploaded_file.name
+    finally:
+        if temporary_path is not None:
+            temporary_path.unlink(missing_ok=True)
+
+
+def create_report_bytes(rows, valid_records, invalid_records):
+    """Create an Excel report and return its contents as bytes."""
+    temporary_path = None
+
+    try:
+        with tempfile.NamedTemporaryFile(
+            suffix=".xlsx",
+            delete=False,
+        ) as temp_file:
+            temporary_path = Path(temp_file.name)
+
+        create_excel_report(
+            rows,
+            valid_records,
+            invalid_records,
+            temporary_path,
+        )
+
+        return temporary_path.read_bytes()
+
     finally:
         if temporary_path is not None:
             temporary_path.unlink(missing_ok=True)
@@ -134,6 +163,37 @@ def main():
 
     valid_records, invalid_records = prepare_records(rows)
     valid_df, invalid_df, _ = make_dataframes(rows, valid_records, invalid_records)
+
+
+    st.subheader("Export Excel report")
+
+    report_filename = st.text_input(
+        "Download filename",
+        value="smartsales_report.xlsx",
+    ).strip()
+
+    if report_filename:
+        if not report_filename.lower().endswith(".xlsx"):
+            report_filename += ".xlsx"
+
+        report_bytes = create_report_bytes(
+            rows,
+            valid_records,
+            invalid_records,
+        )
+
+        st.download_button(
+            label="Download Excel report",
+            data=report_bytes,
+            file_name=report_filename,
+            mime=(
+                "application/vnd.openxmlformats-officedocument."
+                "spreadsheetml.sheet"
+            ),
+            key="download_excel_report",
+        )
+    else:
+        st.warning("Please enter a filename for the Excel report.")
 
     st.caption(f"**Data source:** `{input_label}` · **Rows checked:** {len(rows):,}")
 

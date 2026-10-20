@@ -407,7 +407,11 @@ def create_excel_report(rows, valid_records, invalid_records, output_file):
 def main():
     """Run validation and create the Excel report."""
     input_file = Path(sys.argv[1]) if len(sys.argv) > 1 else DEFAULT_INPUT
-    output_file = DEFAULT_OUTPUT
+
+    if len(sys.argv) > 2:
+        output_file = Path(sys.argv[2])
+    else:
+        output_file = DEFAULT_OUTPUT
 
     rows = read_sales_file(input_file)
     if rows is None:

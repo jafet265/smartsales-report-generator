@@ -1,3 +1,3 @@
-# Dependencies for SmartSales Stages 3 and 4
-openpyxl>=3.1.0
+# SmartSales dependencies for Stages 3–5
+openpyxl>=3.1.0,<4
 matplotlib>=3.8.0

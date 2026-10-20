@@ -1,0 +1,1507 @@
+order_id,order_date,product,category,quantity,unit_price
+1001,2026-01-14,Tablet,Electronics,6,350.0
+1002,2026-01-27,Keyboard,Accessories,11,50.0
+1003,2026-02-09,Desk Lamp,Office Supplies,16,35.0
+1004,2026-02-22,Headphones,Accessories,1,75.0
+1005,2026-03-07,Notebook,Office Supplies,6,4.5
+1006,2026-03-20,USB-C Hub,Accessories,11,45.0
+1007,2026-04-02,Mouse,Accessories,16,20.0
+1008,2026-04-15,External SSD,Storage,1,120.0
+1009,2026-04-28,Monitor,Electronics,7,200.0
+1010,2026-05-11,Office Chair,Furniture,12,180.0
+1011,2026-05-24,USB-C Hub,Accessories,17,45.0
+1012,2026-06-06,Mouse,Accessories,2,20.0
+1013,2026-06-19,External SSD,Storage,7,120.0
+1014,2026-07-02,Monitor,Electronics,12,200.0
+1015,2026-07-15,Office Chair,Furniture,17,180.0
+1016,2026-07-28,Webcam,Electronics,2,60.0
+1017,2026-08-11,Laptop,Electronics,7,800.0
+1018,2026-08-24,Tablet,Electronics,13,350.0
+1019,2026-09-06,Keyboard,Accessories,18,50.0
+1020,2026-09-19,Desk Lamp,Office Supplies,3,35.0
+1021,2026-10-02,Headphones,Accessories,8,75.0
+1022,2026-01-08,Laptop,Electronics,13,800.0
+1023,2026-01-21,Tablet,Electronics,18,350.0
+1024,2026-02-03,Keyboard,Accessories,3,50.0
+1025,2026-02-16,Desk Lamp,Office Supplies,8,35.0
+1026,2026-03-01,Headphones,Accessories,13,75.0
+1027,2026-03-14,Notebook,Office Supplies,19,4.5
+1028,2026-03-27,USB-C Hub,Accessories,4,45.0
+1029,2026-04-09,Mouse,Accessories,9,20.0
+1030,2026-04-22,External SSD,Storage,14,120.0
+1031,2026-05-05,Monitor,Electronics,19,200.0
+1032,2026-05-18,Office Chair,Furniture,4,180.0
+1033,2026-05-31,USB-C Hub,Accessories,9,45.0
+1034,2026-06-14,Mouse,Accessories,14,20.0
+1035,2026-06-27,External SSD,Storage,19,120.0
+1036,2026-07-10,Monitor,Electronics,5,200.0
+,2026-07-23,Office Chair,Furniture,10,180.0
+1038,2026-08-05,Webcam,Electronics,15,60.0
+1039,2026-08-18,Laptop,Electronics,20,800.0
+1040,2026-08-31,Tablet,Electronics,5,350.0
+1041,2026-09-13,Keyboard,Accessories,10,50.0
+1042,2026-09-26,Desk Lamp,Office Supplies,15,35.0
+1043,2026-01-02,Headphones,Accessories,20,75.0
+1044,2026-01-15,Laptop,Electronics,5,800.0
+1045,2026-01-28,Tablet,Electronics,11,350.0
+1046,2026-02-10,Keyboard,Accessories,16,50.0
+1047,2026-02-23,Desk Lamp,Office Supplies,1,35.0
+1048,2026-03-08,Headphones,Accessories,6,75.0
+1049,2026-03-21,Notebook,Office Supplies,11,4.5
+1050,2026-04-03,USB-C Hub,Accessories,16,45.0
+1051,2026-04-17,Mouse,Accessories,1,20.0
+1052,2026-04-30,External SSD,Storage,6,120.0
+1053,2026-05-13,Monitor,Electronics,11,200.0
+1054,2026-05-26,Office Chair,Furniture,17,180.0
+1055,2026-06-08,USB-C Hub,Accessories,2,45.0
+1056,2026-06-21,Mouse,Accessories,7,20.0
+1057,2026-07-04,External SSD,Storage,12,120.0
+1058,2026-07-17,Monitor,Electronics,17,200.0
+1059,2026-07-30,Office Chair,Furniture,2,180.0
+1060,2026-08-12,Webcam,Electronics,7,60.0
+1061,2026-08-25,Laptop,Electronics,12,800.0
+1062,2026-09-07,Tablet,Electronics,17,350.0
+1063,2026-09-20,Keyboard,Accessories,3,50.0
+1064,2026-10-03,Desk Lamp,Office Supplies,8,35.0
+1065,2026-01-09,Headphones,Accessories,13,75.0
+1066,2026-01-22,Laptop,Electronics,18,800.0
+1067,2026-02-04,Tablet,Electronics,3,350.0
+1068,2026-02-18,Keyboard,Accessories,8,50.0
+1069,2026-03-03,Desk Lamp,Office Supplies,13,35.0
+1070,2026-03-16,Headphones,Accessories,18,75.0
+1071,2026-03-29,Notebook,Office Supplies,3,4.5
+1072,2026-04-11,USB-C Hub,Accessories,9,45.0
+1073,2026-04-24,Mouse,Accessories,14,20.0
+1074,2026-05-07,External SSD,Storage,19,120.0
+1075,2026-05-20,Monitor,Electronics,4,200.0
+1076,2026-06-02,Office Chair,Furniture,9,180.0
+1077,2026-06-15,USB-C Hub,Accessories,14,45.0
+1078,2026-06-28,Mouse,Accessories,19,20.0
+1079,2026-07-11,External SSD,Storage,4,120.0
+1080,2026-07-24,Monitor,Electronics,9,200.0
+1081,2026-08-06,Office Chair,Furniture,15,180.0
+1082,2026-08-19,Webcam,Electronics,20,60.0
+ID-INVALID,2026-09-01,Laptop,Electronics,5,800.0
+1084,2026-09-14,Tablet,Electronics,10,350.0
+1085,2026-09-28,Keyboard,Accessories,15,50.0
+1086,2026-01-04,Desk Lamp,Office Supplies,20,35.0
+1087,2026-01-17,Headphones,Accessories,5,75.0
+1088,2026-01-30,Laptop,Electronics,10,800.0
+1089,2026-02-12,Tablet,Electronics,15,350.0
+1090,2026-02-25,Keyboard,Accessories,1,50.0
+1091,2026-03-10,Desk Lamp,Office Supplies,6,35.0
+1092,2026-03-23,Headphones,Accessories,11,75.0
+1093,2026-04-05,Notebook,Office Supplies,16,4.5
+1094,2026-04-18,USB-C Hub,Accessories,1,45.0
+1095,2026-05-01,Mouse,Accessories,6,20.0
+1096,2026-05-14,External SSD,Storage,11,120.0
+1097,2026-05-27,Monitor,Electronics,16,200.0
+1098,2026-06-09,Office Chair,Furniture,1,180.0
+1099,2026-06-22,USB-C Hub,Accessories,7,45.0
+1100,2026-07-05,Mouse,Accessories,12,20.0
+1101,2026-07-18,External SSD,Storage,17,120.0
+1102,2026-08-01,Monitor,Electronics,2,200.0
+1103,2026-08-14,Office Chair,Furniture,7,180.0
+1104,2026-08-27,Webcam,Electronics,12,60.0
+1105,2026-09-09,Laptop,Electronics,17,800.0
+1106,2026-09-22,Tablet,Electronics,2,350.0
+1107,2026-10-05,Keyboard,Accessories,7,50.0
+1108,2026-01-11,Desk Lamp,Office Supplies,13,35.0
+1109,2026-01-24,Headphones,Accessories,18,75.0
+1110,2026-02-06,Laptop,Electronics,3,800.0
+1111,2026-02-19,Tablet,Electronics,8,350.0
+1112,2026-03-04,Keyboard,Accessories,13,50.0
+1113,2026-03-17,Desk Lamp,Office Supplies,18,35.0
+1114,2026-03-30,Headphones,Accessories,3,75.0
+1115,2026-04-12,Notebook,Office Supplies,8,4.5
+1116,2026-04-25,USB-C Hub,Accessories,13,45.0
+1117,2026-05-08,Mouse,Accessories,19,20.0
+1118,2026-05-21,External SSD,Storage,4,120.0
+1119,2026-06-04,Monitor,Electronics,9,200.0
+1119,2026-06-17,Office Chair,Furniture,14,180.0
+1121,2026-06-30,USB-C Hub,Accessories,19,45.0
+1122,2026-07-13,Mouse,Accessories,4,20.0
+1123,2026-07-26,External SSD,Storage,9,120.0
+1124,2026-08-08,Monitor,Electronics,14,200.0
+1125,2026-08-21,Office Chair,Furniture,19,180.0
+1126,2026-09-03,Webcam,Electronics,5,60.0
+1127,2026-09-16,Laptop,Electronics,10,800.0
+1128,2026-09-29,Tablet,Electronics,15,350.0
+1129,2026-01-05,Keyboard,Accessories,20,50.0
+1130,2026-01-18,Desk Lamp,Office Supplies,5,35.0
+1131,2026-01-31,Headphones,Accessories,10,75.0
+1132,2026-02-13,Laptop,Electronics,15,800.0
+1133,2026-02-26,Tablet,Electronics,20,350.0
+1134,2026-03-11,Keyboard,Accessories,5,50.0
+1135,2026-03-24,Desk Lamp,Office Supplies,11,35.0
+1136,2026-04-07,Headphones,Accessories,16,75.0
+1137,2026-04-20,Notebook,Office Supplies,1,4.5
+1138,2026-05-03,USB-C Hub,Accessories,6,45.0
+1139,2026-05-16,Mouse,Accessories,11,20.0
+1140,2026-05-29,External SSD,Storage,16,120.0
+1141,2026-06-11,Monitor,Electronics,1,200.0
+1142,2026-06-24,Office Chair,Furniture,6,180.0
+1143,2026-07-07,USB-C Hub,Accessories,11,45.0
+1144,2026-07-20,Mouse,Accessories,17,20.0
+1145,2026-08-02,External SSD,Storage,2,120.0
+1146,,Monitor,Electronics,7,200.0
+1147,2026-08-28,Office Chair,Furniture,12,180.0
+1148,2026-09-10,Webcam,Electronics,17,60.0
+1149,2026-09-23,Laptop,Electronics,2,800.0
+1150,2026-10-06,Tablet,Electronics,7,350.0
+1151,2026-01-12,Keyboard,Accessories,12,50.0
+1152,2026-01-25,Desk Lamp,Office Supplies,17,35.0
+1153,2026-02-08,Headphones,Accessories,3,75.0
+1154,2026-02-21,Laptop,Electronics,8,800.0
+1155,2026-03-06,Tablet,Electronics,13,350.0
+1156,2026-03-19,Keyboard,Accessories,18,50.0
+1157,2026-04-01,Desk Lamp,Office Supplies,3,35.0
+1158,2026-04-14,Headphones,Accessories,8,75.0
+1159,2026-04-27,Notebook,Office Supplies,13,4.5
+1160,2026-05-10,USB-C Hub,Accessories,18,45.0
+1161,2026-05-23,Mouse,Accessories,3,20.0
+1162,2026-06-05,External SSD,Storage,9,120.0
+1163,2026-06-18,Monitor,Electronics,14,200.0
+1164,2026-07-01,Office Chair,Furniture,19,180.0
+1165,2026-07-14,USB-C Hub,Accessories,4,45.0
+1166,2026-07-27,Mouse,Accessories,9,20.0
+1167,2026-08-09,External SSD,Storage,14,120.0
+1168,2026-08-22,Monitor,Electronics,19,200.0
+1169,2026-09-04,Office Chair,Furniture,4,180.0
+1170,2026-09-18,Webcam,Electronics,9,60.0
+1171,2026-10-01,Laptop,Electronics,15,800.0
+1172,2026-01-07,Tablet,Electronics,20,350.0
+1173,2026-01-20,Keyboard,Accessories,5,50.0
+1174,2026-02-02,Desk Lamp,Office Supplies,10,35.0
+1175,2026-02-15,Headphones,Accessories,15,75.0
+1176,2026-02-28,Laptop,Electronics,20,800.0
+1177,2026-03-13,Tablet,Electronics,5,350.0
+1178,2026-03-26,Keyboard,Accessories,10,50.0
+1179,2026-04-08,Desk Lamp,Office Supplies,15,35.0
+1180,2026-04-21,Headphones,Accessories,1,75.0
+1181,2026-05-04,Notebook,Office Supplies,6,4.5
+1182,2026-05-17,USB-C Hub,Accessories,11,45.0
+1183,2026-05-30,Mouse,Accessories,16,20.0
+1184,2026-06-12,External SSD,Storage,1,120.0
+1185,2026-06-25,Monitor,Electronics,6,200.0
+1186,2026-07-08,Office Chair,Furniture,11,180.0
+1187,2026-07-22,USB-C Hub,Accessories,16,45.0
+1188,2026-08-04,Mouse,Accessories,1,20.0
+1189,2026-08-17,External SSD,Storage,7,120.0
+1190,2026-08-30,Monitor,Electronics,12,200.0
+1191,2026-09-12,Office Chair,Furniture,17,180.0
+1192,2026-99-40,Webcam,Electronics,2,60.0
+1193,2026-01-01,Laptop,Electronics,7,800.0
+1194,2026-01-14,Tablet,Electronics,12,350.0
+1195,2026-01-27,Keyboard,Accessories,17,50.0
+1196,2026-02-09,Desk Lamp,Office Supplies,2,35.0
+1197,2026-02-22,Headphones,Accessories,7,75.0
+1198,2026-03-07,Laptop,Electronics,13,800.0
+1199,2026-03-20,Tablet,Electronics,18,350.0
+1200,2026-04-02,Keyboard,Accessories,3,50.0
+1201,2026-04-15,Desk Lamp,Office Supplies,8,35.0
+1202,2026-04-28,Headphones,Accessories,13,75.0
+1203,2026-05-11,Notebook,Office Supplies,18,4.5
+1204,2026-05-25,USB-C Hub,Accessories,3,45.0
+1205,2026-06-07,Mouse,Accessories,8,20.0
+1206,2026-06-20,External SSD,Storage,13,120.0
+1207,2026-07-03,Monitor,Electronics,19,200.0
+1208,2026-07-16,Office Chair,Furniture,4,180.0
+1209,2026-07-29,USB-C Hub,Accessories,9,45.0
+1210,2026-08-11,Mouse,Accessories,14,20.0
+1211,2026-08-24,External SSD,Storage,19,120.0
+1212,2026-09-06,Monitor,Electronics,4,200.0
+1213,2026-09-19,Office Chair,Furniture,9,180.0
+1214,2026-10-02,Webcam,Electronics,14,60.0
+1215,2026-01-08,Laptop,Electronics,19,800.0
+1216,2026-01-21,Tablet,Electronics,5,350.0
+1217,2026-02-03,Keyboard,Accessories,10,50.0
+1218,2026-02-16,Desk Lamp,Office Supplies,15,35.0
+1219,2026-03-01,Headphones,Accessories,20,75.0
+1220,2026-03-14,Laptop,Electronics,5,800.0
+1221,2026-03-28,Tablet,Electronics,10,350.0
+1222,2026-04-10,Keyboard,Accessories,15,50.0
+1223,2026-04-23,Desk Lamp,Office Supplies,20,35.0
+1224,2026-05-06,Headphones,Accessories,5,75.0
+1225,2026-05-19,Notebook,Office Supplies,11,4.5
+1226,2026-06-01,,Accessories,16,45.0
+1227,2026-06-14,Mouse,Accessories,1,20.0
+1228,2026-06-27,External SSD,Storage,6,120.0
+1229,2026-07-10,Monitor,Electronics,11,200.0
+1230,2026-07-23,Office Chair,Furniture,16,180.0
+1231,2026-08-05,USB-C Hub,Accessories,1,45.0
+1232,2026-08-18,Mouse,Accessories,6,20.0
+1233,2026-08-31,External SSD,Storage,11,120.0
+1234,2026-09-13,Monitor,Electronics,17,200.0
+1235,2026-09-26,Office Chair,Furniture,2,180.0
+1236,2026-01-02,Webcam,Electronics,7,60.0
+1237,2026-01-15,Laptop,Electronics,12,800.0
+1238,2026-01-29,Tablet,Electronics,17,350.0
+1239,2026-02-11,Keyboard,Accessories,2,50.0
+1240,2026-02-24,Desk Lamp,Office Supplies,7,35.0
+1241,2026-03-09,Headphones,Accessories,12,75.0
+1242,2026-03-22,Laptop,Electronics,17,800.0
+1243,2026-04-04,Tablet,Electronics,3,350.0
+1244,2026-04-17,Keyboard,Accessories,8,50.0
+1245,2026-04-30,Desk Lamp,Office Supplies,13,35.0
+1246,2026-05-13,Headphones,Accessories,18,75.0
+1247,2026-05-26,Notebook,Office Supplies,3,4.5
+1248,2026-06-08,USB-C Hub,Accessories,8,45.0
+1249,2026-06-21,Mouse,Accessories,13,20.0
+1250,2026-07-04,External SSD,Storage,18,120.0
+1251,2026-07-17,Monitor,Electronics,3,200.0
+1252,2026-07-30,Office Chair,Furniture,9,180.0
+1253,2026-08-12,USB-C Hub,Accessories,14,45.0
+1254,2026-08-25,Mouse,Accessories,19,20.0
+1255,2026-09-08,External SSD,Storage,4,120.0
+1256,2026-09-21,Monitor,Electronics,9,200.0
+1257,2026-10-04,Office Chair,Furniture,14,180.0
+1258,2026-01-10,Webcam,Electronics,19,60.0
+1259,2026-01-23,Laptop,Electronics,4,800.0
+1260,2026-02-05,Tablet,Electronics,9,350.0
+1261,2026-02-18,Keyboard,Accessories,15,50.0
+1262,2026-03-03,Desk Lamp,Office Supplies,20,35.0
+1263,2026-03-16,Headphones,Accessories,5,75.0
+1264,2026-03-29,Laptop,Electronics,10,800.0
+1265,2026-04-11,Tablet,Electronics,15,350.0
+1266,2026-04-24,Keyboard,Accessories,20,50.0
+1267,2026-05-07,Desk Lamp,Office Supplies,5,35.0
+1268,2026-05-20,Headphones,Accessories,10,75.0
+1269,2026-06-02,Notebook,Office Supplies,15,4.5
+1270,2026-06-15,USB-C Hub,Accessories,1,45.0
+1271,2026-06-28,Mouse,Accessories,6,20.0
+1272,2026-07-12,External SSD,Storage,11,120.0
+1273,2026-07-25,Monitor,Electronics,16,200.0
+1274,2026-08-07,Office Chair,Furniture,1,180.0
+1275,2026-08-20,   ,Accessories,6,45.0
+1276,2026-09-02,Mouse,Accessories,11,20.0
+1277,2026-09-15,External SSD,Storage,16,120.0
+1278,2026-09-28,Monitor,Electronics,1,200.0
+1279,2026-01-04,Office Chair,Furniture,7,180.0
+1280,2026-01-17,Webcam,Electronics,12,60.0
+1281,2026-01-30,Laptop,Electronics,17,800.0
+1282,2026-02-12,Tablet,Electronics,2,350.0
+1283,2026-02-25,Keyboard,Accessories,7,50.0
+1284,2026-03-10,Desk Lamp,Office Supplies,12,35.0
+1285,2026-03-23,Headphones,Accessories,17,75.0
+1286,2026-04-05,Laptop,Electronics,2,800.0
+1287,2026-04-18,Tablet,Electronics,7,350.0
+1288,2026-05-01,Keyboard,Accessories,13,50.0
+1289,2026-05-15,Desk Lamp,Office Supplies,18,35.0
+1290,2026-05-28,Headphones,Accessories,3,75.0
+1291,2026-06-10,Notebook,Office Supplies,8,4.5
+1292,2026-06-23,USB-C Hub,Accessories,13,45.0
+1293,2026-07-06,Mouse,Accessories,18,20.0
+1294,2026-07-19,External SSD,Storage,3,120.0
+1295,2026-08-01,Monitor,Electronics,8,200.0
+1296,2026-08-14,Office Chair,Furniture,13,180.0
+1297,2026-08-27,USB-C Hub,Accessories,19,45.0
+1298,2026-09-09,Mouse,Accessories,4,20.0
+1299,2026-09-22,External SSD,Storage,9,120.0
+1300,2026-10-05,Monitor,Electronics,14,200.0
+1301,2026-01-11,Office Chair,Furniture,19,180.0
+1302,2026-01-24,Webcam,Electronics,4,60.0
+1303,2026-02-06,Laptop,Electronics,9,800.0
+1304,2026-02-19,Tablet,Electronics,14,350.0
+1305,2026-03-04,Keyboard,Accessories,19,50.0
+1306,2026-03-18,Desk Lamp,Office Supplies,5,35.0
+1307,2026-03-31,Headphones,Accessories,10,75.0
+1308,2026-04-13,Laptop,Electronics,15,800.0
+1309,2026-04-26,Tablet,Electronics,20,350.0
+1310,2026-05-09,Keyboard,Accessories,5,50.0
+1311,2026-05-22,Desk Lamp,,10,35.0
+1312,2026-06-04,Headphones,Accessories,15,75.0
+1313,2026-06-17,Notebook,Office Supplies,20,4.5
+1314,2026-06-30,USB-C Hub,Accessories,5,45.0
+1315,2026-07-13,Mouse,Accessories,11,20.0
+1316,2026-07-26,External SSD,Storage,16,120.0
+1317,2026-08-08,Monitor,Electronics,1,200.0
+1318,2026-08-21,Office Chair,Furniture,6,180.0
+1319,2026-09-03,USB-C Hub,Accessories,11,45.0
+1320,2026-09-16,Mouse,Accessories,16,20.0
+1321,2026-09-29,External SSD,Storage,1,120.0
+1322,2026-01-05,Monitor,Electronics,6,200.0
+1323,2026-01-19,Office Chair,Furniture,11,180.0
+1324,2026-02-01,Webcam,Electronics,17,60.0
+1325,2026-02-14,Laptop,Electronics,2,800.0
+1326,2026-02-27,Tablet,Electronics,7,350.0
+1327,2026-03-12,Keyboard,Accessories,12,50.0
+1328,2026-03-25,Desk Lamp,Office Supplies,17,35.0
+1329,2026-04-07,Headphones,Accessories,2,75.0
+1330,2026-04-20,Laptop,Electronics,7,800.0
+1331,2026-05-03,Tablet,Electronics,12,350.0
+1332,2026-05-16,Keyboard,Accessories,17,50.0
+1333,2026-05-29,Desk Lamp,Office Supplies,3,35.0
+1334,2026-06-11,Headphones,Accessories,8,75.0
+1335,2026-06-24,Notebook,Office Supplies,13,4.5
+1336,2026-07-07,USB-C Hub,Accessories,18,45.0
+1337,2026-07-20,Mouse,Accessories,3,20.0
+1338,2026-08-02,External SSD,Storage,8,120.0
+1339,2026-08-15,Monitor,Electronics,13,200.0
+1340,2026-08-29,Office Chair,Furniture,18,180.0
+1341,2026-09-11,USB-C Hub,Accessories,3,45.0
+1342,2026-09-24,Mouse,Accessories,9,20.0
+1343,2026-10-07,External SSD,Storage,14,120.0
+1344,2026-01-13,Monitor,Electronics,19,200.0
+1345,2026-01-26,Office Chair,Furniture,4,180.0
+1346,2026-02-08,Webcam,Electronics,9,60.0
+1347,2026-02-21,Laptop,Electronics,14,800.0
+1348,2026-03-06,Tablet,Electronics,19,350.0
+1349,2026-03-19,Keyboard,Accessories,4,50.0
+1350,2026-04-01,Desk Lamp,Office Supplies,9,35.0
+1351,2026-04-14,Headphones,Accessories,15,75.0
+1352,2026-04-27,Laptop,Electronics,20,800.0
+1353,2026-05-10,Tablet,Electronics,5,350.0
+1354,2026-05-23,Keyboard,Accessories,10,50.0
+1355,2026-06-05,Desk Lamp,Office Supplies,15,35.0
+1356,2026-06-18,Headphones,Accessories,20,75.0
+1357,2026-07-02,Notebook,Office Supplies,5,4.5
+1358,2026-07-15,USB-C Hub,Accessories,10,45.0
+1359,2026-07-28,Mouse,???,15,20.0
+1360,2026-08-10,External SSD,Storage,1,120.0
+1361,2026-08-23,Monitor,Electronics,6,200.0
+1362,2026-09-05,Office Chair,Furniture,11,180.0
+1363,2026-09-18,USB-C Hub,Accessories,16,45.0
+1364,2026-10-01,Mouse,Accessories,1,20.0
+1365,2026-01-07,External SSD,Storage,6,120.0
+1366,2026-01-20,Monitor,Electronics,11,200.0
+1367,2026-02-02,Office Chair,Furniture,16,180.0
+1368,2026-02-15,Webcam,Electronics,1,60.0
+1369,2026-02-28,Laptop,Electronics,7,800.0
+1370,2026-03-13,Tablet,Electronics,12,350.0
+1371,2026-03-26,Keyboard,Accessories,17,50.0
+1372,2026-04-08,Desk Lamp,Office Supplies,2,35.0
+1373,2026-04-21,Headphones,Accessories,7,75.0
+1374,2026-05-05,Laptop,Electronics,12,800.0
+1375,2026-05-18,Tablet,Electronics,17,350.0
+1376,2026-05-31,Keyboard,Accessories,2,50.0
+1377,2026-06-13,Desk Lamp,Office Supplies,7,35.0
+1378,2026-06-26,Headphones,Accessories,13,75.0
+1379,2026-07-09,Notebook,Office Supplies,18,4.5
+1380,2026-07-22,USB-C Hub,Accessories,3,45.0
+1381,2026-08-04,Mouse,Accessories,8,20.0
+1382,2026-08-17,External SSD,Storage,13,120.0
+1383,2026-08-30,Monitor,Electronics,18,200.0
+1384,2026-09-12,Office Chair,Furniture,3,180.0
+1385,2026-09-25,USB-C Hub,Accessories,8,45.0
+1386,2026-01-01,Mouse,Accessories,13,20.0
+1387,2026-01-14,External SSD,Storage,19,120.0
+1388,2026-01-27,Monitor,Electronics,4,200.0
+1389,2026-02-09,Office Chair,Furniture,9,180.0
+1390,2026-02-22,Webcam,Electronics,14,60.0
+1391,2026-03-08,Laptop,Electronics,19,800.0
+1392,2026-03-21,Tablet,Electronics,4,350.0
+1393,2026-04-03,Keyboard,Accessories,9,50.0
+1394,2026-04-16,Desk Lamp,Office Supplies,14,35.0
+1395,2026-04-29,Headphones,Accessories,19,75.0
+1396,2026-05-12,Laptop,Electronics,5,800.0
+1397,2026-05-25,Tablet,Electronics,10,350.0
+1398,2026-06-07,Keyboard,Accessories,15,50.0
+1399,2026-06-20,Desk Lamp,Office Supplies,20,35.0
+1400,2026-07-03,Headphones,Accessories,5,75.0
+1401,2026-07-16,Notebook,Office Supplies,10,4.5
+1402,2026-07-29,USB-C Hub,Accessories,15,45.0
+1403,2026-08-11,Mouse,Accessories,20,20.0
+1404,2026-08-24,External SSD,Storage,5,120.0
+1405,2026-09-06,Monitor,Electronics,11,200.0
+1406,2026-09-19,Office Chair,Furniture,,180.0
+1407,2026-10-02,USB-C Hub,Accessories,1,45.0
+1408,2026-01-09,Mouse,Accessories,6,20.0
+1409,2026-01-22,External SSD,Storage,11,120.0
+1410,2026-02-04,Monitor,Electronics,16,200.0
+1411,2026-02-17,Office Chair,Furniture,1,180.0
+1412,2026-03-02,Webcam,Electronics,6,60.0
+1413,2026-03-15,Laptop,Electronics,11,800.0
+1414,2026-03-28,Tablet,Electronics,17,350.0
+1415,2026-04-10,Keyboard,Accessories,2,50.0
+1416,2026-04-23,Desk Lamp,Office Supplies,7,35.0
+1417,2026-05-06,Headphones,Accessories,12,75.0
+1418,2026-05-19,Laptop,Electronics,17,800.0
+1419,2026-06-01,Tablet,Electronics,2,350.0
+1420,2026-06-14,Keyboard,Accessories,7,50.0
+1421,2026-06-27,Desk Lamp,Office Supplies,12,35.0
+1422,2026-07-10,Headphones,Accessories,17,75.0
+1423,2026-07-23,Notebook,Office Supplies,3,4.5
+1424,2026-08-05,USB-C Hub,Accessories,8,45.0
+1425,2026-08-19,Mouse,Accessories,13,20.0
+1426,2026-09-01,External SSD,Storage,18,120.0
+1427,2026-09-14,Monitor,Electronics,3,200.0
+1428,2026-09-27,Office Chair,Furniture,8,180.0
+1429,2026-01-03,USB-C Hub,Accessories,13,45.0
+1430,2026-01-16,Mouse,Accessories,18,20.0
+1431,2026-01-29,External SSD,Storage,3,120.0
+1432,2026-02-11,Monitor,Electronics,9,200.0
+1433,2026-02-24,Office Chair,Furniture,14,180.0
+1434,2026-03-09,Webcam,Electronics,19,60.0
+1435,2026-03-22,Laptop,Electronics,4,800.0
+1436,2026-04-04,Tablet,Electronics,9,350.0
+1437,2026-04-17,Keyboard,Accessories,14,50.0
+1438,2026-04-30,Desk Lamp,Office Supplies,19,35.0
+1439,2026-05-13,Headphones,Accessories,4,75.0
+1440,2026-05-26,Laptop,Electronics,9,800.0
+1441,2026-06-08,Tablet,Electronics,15,350.0
+1442,2026-06-22,Keyboard,Accessories,20,50.0
+1443,2026-07-05,Desk Lamp,Office Supplies,5,35.0
+1444,2026-07-18,Headphones,Accessories,10,75.0
+1445,2026-07-31,Notebook,Office Supplies,15,4.5
+1446,2026-08-13,USB-C Hub,Accessories,20,45.0
+1447,2026-08-26,Mouse,Accessories,5,20.0
+1448,2026-09-08,External SSD,Storage,10,120.0
+1449,2026-09-21,Monitor,Electronics,15,200.0
+1450,2026-10-04,Office Chair,Furniture,abc,180.0
+1451,2026-01-10,USB-C Hub,Accessories,6,45.0
+1452,2026-01-23,Mouse,Accessories,11,20.0
+1453,2026-02-05,External SSD,Storage,16,120.0
+1454,2026-02-18,Monitor,Electronics,1,200.0
+1455,2026-03-03,Office Chair,Furniture,6,180.0
+1456,2026-03-16,Webcam,Electronics,11,60.0
+1457,2026-03-29,Laptop,Electronics,16,800.0
+1458,2026-04-11,Tablet,Electronics,1,350.0
+1459,2026-04-25,Keyboard,Accessories,7,50.0
+1460,2026-05-08,Desk Lamp,Office Supplies,12,35.0
+1461,2026-05-21,Headphones,Accessories,17,75.0
+1462,2026-06-03,Laptop,Electronics,2,800.0
+1463,2026-06-16,Tablet,Electronics,7,350.0
+1464,2026-06-29,Keyboard,Accessories,12,50.0
+1465,2026-07-12,Desk Lamp,Office Supplies,17,35.0
+1466,2026-07-25,Headphones,Accessories,2,75.0
+1467,2026-08-07,Notebook,Office Supplies,7,4.5
+1468,2026-08-20,USB-C Hub,Accessories,13,45.0
+1469,2026-09-02,Mouse,Accessories,18,20.0
+1470,2026-09-15,External SSD,Storage,3,120.0
+1471,2026-09-28,Monitor,Electronics,8,200.0
+1472,2026-01-04,Office Chair,Furniture,13,180.0
+1473,2026-01-17,USB-C Hub,Accessories,18,45.0
+1474,2026-01-30,Mouse,Accessories,3,20.0
+1475,2026-02-12,External SSD,Storage,8,120.0
+1476,2026-02-26,Monitor,Electronics,13,200.0
+1477,2026-03-11,Office Chair,Furniture,19,180.0
+1478,2026-03-24,Webcam,Electronics,4,60.0
+1479,2026-04-06,Laptop,Electronics,9,800.0
+1480,2026-04-19,Tablet,Electronics,14,350.0
+1481,2026-05-02,Keyboard,Accessories,19,50.0
+1482,2026-05-15,Desk Lamp,Office Supplies,4,35.0
+1483,2026-05-28,Headphones,Accessories,9,75.0
+1484,2026-06-10,Laptop,Electronics,14,800.0
+1485,2026-06-23,Tablet,Electronics,19,350.0
+1486,2026-07-06,Keyboard,Accessories,5,50.0
+1487,2026-07-19,Desk Lamp,Office Supplies,10,35.0
+1488,2026-08-01,Headphones,Accessories,15,75.0
+1489,2026-08-14,Notebook,Office Supplies,20,4.5
+1490,2026-08-27,USB-C Hub,Accessories,5,45.0
+1491,2026-09-09,Mouse,Accessories,10,20.0
+1492,2026-09-22,External SSD,Storage,15,120.0
+1493,2026-10-06,Monitor,Electronics,20,200.0
+1494,2026-01-12,Office Chair,Furniture,0,180.0
+1495,2026-01-25,USB-C Hub,Accessories,11,45.0
+1496,2026-02-07,Mouse,Accessories,16,20.0
+1497,2026-02-20,External SSD,Storage,1,120.0
+1498,2026-03-05,Monitor,Electronics,6,200.0
+1499,2026-03-18,Office Chair,Furniture,11,180.0
+1500,2026-03-31,Webcam,Electronics,16,60.0
+1501,2026-04-13,Laptop,Electronics,1,800.0
+1502,2026-04-26,Tablet,Electronics,6,350.0
+1503,2026-05-09,Keyboard,Accessories,11,50.0
+1504,2026-05-22,Desk Lamp,Office Supplies,17,35.0
+1505,2026-06-04,Headphones,Accessories,2,75.0
+1506,2026-06-17,Laptop,Electronics,7,800.0
+1507,2026-06-30,Tablet,Electronics,12,350.0
+1508,2026-07-13,Keyboard,Accessories,17,50.0
+1509,2026-07-26,Desk Lamp,Office Supplies,2,35.0
+1510,2026-08-09,Headphones,Accessories,7,75.0
+1511,2026-08-22,Notebook,Office Supplies,12,4.5
+1512,2026-09-04,USB-C Hub,Accessories,17,45.0
+1513,2026-09-17,Mouse,Accessories,3,20.0
+1514,2026-09-30,External SSD,Storage,8,120.0
+1515,2026-01-06,Monitor,Electronics,13,200.0
+1516,2026-01-19,Office Chair,Furniture,18,180.0
+1517,2026-02-01,USB-C Hub,Accessories,3,45.0
+1518,2026-02-14,Mouse,Accessories,8,20.0
+1519,2026-02-27,External SSD,Storage,13,120.0
+1520,2026-03-12,Monitor,Electronics,18,200.0
+1521,2026-03-25,Office Chair,Furniture,3,180.0
+1522,2026-04-07,Webcam,Electronics,9,60.0
+1523,2026-04-20,Laptop,Electronics,14,800.0
+1524,2026-05-03,Tablet,Electronics,19,350.0
+1525,2026-05-16,Keyboard,Accessories,4,50.0
+1526,2026-05-29,Desk Lamp,Office Supplies,9,35.0
+1527,2026-06-12,Headphones,Accessories,14,75.0
+1528,2026-06-25,Laptop,Electronics,19,800.0
+1529,2026-07-08,Tablet,Electronics,4,350.0
+1530,2026-07-21,Keyboard,Accessories,9,50.0
+1531,2026-08-03,Desk Lamp,Office Supplies,15,35.0
+1532,2026-08-16,Headphones,Accessories,20,75.0
+1533,2026-08-29,Notebook,Office Supplies,5,4.5
+1534,2026-09-11,USB-C Hub,Accessories,10,45.0
+1535,2026-09-24,Mouse,Accessories,15,20.0
+1536,2026-10-07,External SSD,Storage,20,120.0
+1537,2026-01-13,Monitor,Electronics,5,200.0
+1538,2026-01-26,Office Chair,Furniture,-4,180.0
+1539,2026-02-08,USB-C Hub,Accessories,15,45.0
+1540,2026-02-21,Mouse,Accessories,1,20.0
+1541,2026-03-06,External SSD,Storage,6,120.0
+1542,2026-03-19,Monitor,Electronics,11,200.0
+1543,2026-04-01,Office Chair,Furniture,16,180.0
+1544,2026-04-15,Webcam,Electronics,1,60.0
+1545,2026-04-28,Laptop,Electronics,6,800.0
+1546,2026-05-11,Tablet,Electronics,11,350.0
+1547,2026-05-24,Keyboard,Accessories,16,50.0
+1548,2026-06-06,Desk Lamp,Office Supplies,1,35.0
+1549,2026-06-19,Headphones,Accessories,7,75.0
+1550,2026-07-02,Laptop,Electronics,12,800.0
+1551,2026-07-15,Tablet,Electronics,17,350.0
+1552,2026-07-28,Keyboard,Accessories,2,50.0
+1553,2026-08-10,Desk Lamp,Office Supplies,7,35.0
+1554,2026-08-23,Headphones,Accessories,12,75.0
+1555,2026-09-05,Notebook,Office Supplies,17,4.5
+1556,2026-09-18,USB-C Hub,Accessories,2,45.0
+1557,2026-10-01,Mouse,Accessories,7,20.0
+1558,2026-01-07,External SSD,Storage,13,120.0
+1559,2026-01-20,Monitor,Electronics,18,200.0
+1560,2026-02-02,Office Chair,Furniture,3,180.0
+1561,2026-02-16,USB-C Hub,Accessories,8,45.0
+1562,2026-03-01,Mouse,Accessories,13,20.0
+1563,2026-03-14,External SSD,Storage,18,120.0
+1564,2026-03-27,Monitor,Electronics,3,200.0
+1565,2026-04-09,Office Chair,Furniture,8,180.0
+1566,2026-04-22,Webcam,Electronics,13,60.0
+1567,2026-05-05,Laptop,Electronics,19,800.0
+1568,2026-05-18,Tablet,Electronics,4,350.0
+1569,2026-05-31,Keyboard,Accessories,9,50.0
+1570,2026-06-13,Desk Lamp,Office Supplies,14,35.0
+1571,2026-06-26,Headphones,Accessories,19,75.0
+1572,2026-07-09,Laptop,Electronics,4,800.0
+1573,2026-07-22,Tablet,Electronics,9,350.0
+1574,2026-08-04,Keyboard,Accessories,14,50.0
+1575,2026-08-17,Desk Lamp,Office Supplies,19,35.0
+1576,2026-08-30,Headphones,Accessories,5,75.0
+1577,2026-09-12,Notebook,Office Supplies,10,4.5
+1578,2026-09-26,USB-C Hub,Accessories,15,45.0
+1579,2026-01-02,Mouse,Accessories,20,20.0
+1580,2026-01-15,External SSD,Storage,5,120.0
+1581,2026-01-28,Monitor,Electronics,10,200.0
+1582,2026-02-10,Office Chair,Furniture,15,
+1583,2026-02-23,USB-C Hub,Accessories,20,45.0
+1584,2026-03-08,Mouse,Accessories,5,20.0
+1585,2026-03-21,External SSD,Storage,11,120.0
+1586,2026-04-03,Monitor,Electronics,16,200.0
+1587,2026-04-16,Office Chair,Furniture,1,180.0
+1588,2026-04-29,Webcam,Electronics,6,60.0
+1589,2026-05-12,Laptop,Electronics,11,800.0
+1590,2026-05-25,Tablet,Electronics,16,350.0
+1591,2026-06-07,Keyboard,Accessories,1,50.0
+1592,2026-06-20,Desk Lamp,Office Supplies,6,35.0
+1593,2026-07-03,Headphones,Accessories,11,75.0
+1594,2026-07-16,Laptop,Electronics,17,800.0
+1595,2026-07-30,Tablet,Electronics,2,350.0
+1596,2026-08-12,Keyboard,Accessories,7,50.0
+1597,2026-08-25,Desk Lamp,Office Supplies,12,35.0
+1598,2026-09-07,Headphones,Accessories,17,75.0
+1599,2026-09-20,Notebook,Office Supplies,2,4.5
+1600,2026-10-03,USB-C Hub,Accessories,7,45.0
+1601,2026-01-09,Mouse,Accessories,12,20.0
+1602,2026-01-22,External SSD,Storage,17,120.0
+1603,2026-02-04,Monitor,Electronics,3,200.0
+1604,2026-02-17,Office Chair,Furniture,8,180.0
+1605,2026-03-02,USB-C Hub,Accessories,13,45.0
+1606,2026-03-15,Mouse,Accessories,18,20.0
+1607,2026-03-28,External SSD,Storage,3,120.0
+1608,2026-04-10,Monitor,Electronics,8,200.0
+1609,2026-04-23,Office Chair,Furniture,13,180.0
+1610,2026-05-06,Webcam,Electronics,18,60.0
+1611,2026-05-19,Laptop,Electronics,3,800.0
+1612,2026-06-02,Tablet,Electronics,9,350.0
+1613,2026-06-15,Keyboard,Accessories,14,50.0
+1614,2026-06-28,Desk Lamp,Office Supplies,19,35.0
+1615,2026-07-11,Headphones,Accessories,4,75.0
+1616,2026-07-24,Laptop,Electronics,9,800.0
+1617,2026-08-06,Tablet,Electronics,14,350.0
+1618,2026-08-19,Keyboard,Accessories,19,50.0
+1619,2026-09-01,Desk Lamp,Office Supplies,4,35.0
+1620,2026-09-14,Headphones,Accessories,9,75.0
+1621,2026-09-27,Notebook,Office Supplies,15,4.5
+1622,2026-01-03,USB-C Hub,Accessories,20,45.0
+1623,2026-01-16,Mouse,Accessories,5,20.0
+1624,2026-01-29,External SSD,Storage,10,120.0
+1625,2026-02-11,Monitor,Electronics,15,200.0
+1626,2026-02-24,Office Chair,Furniture,20,not-a-price
+1627,2026-03-09,USB-C Hub,Accessories,5,45.0
+1628,2026-03-22,Mouse,Accessories,10,20.0
+1629,2026-04-05,External SSD,Storage,15,120.0
+1630,2026-04-18,Monitor,Electronics,1,200.0
+1631,2026-05-01,Office Chair,Furniture,6,180.0
+1632,2026-05-14,Webcam,Electronics,11,60.0
+1633,2026-05-27,Laptop,Electronics,16,800.0
+1634,2026-06-09,Tablet,Electronics,1,350.0
+1635,2026-06-22,Keyboard,Accessories,6,50.0
+1636,2026-07-05,Desk Lamp,Office Supplies,11,35.0
+1637,2026-07-18,Headphones,Accessories,16,75.0
+1638,2026-07-31,Laptop,Electronics,1,800.0
+1639,2026-08-13,Tablet,Electronics,7,350.0
+1640,2026-08-26,Keyboard,Accessories,12,50.0
+1641,2026-09-08,Desk Lamp,Office Supplies,17,35.0
+1642,2026-09-21,Headphones,Accessories,2,75.0
+1643,2026-10-04,Notebook,Office Supplies,7,4.5
+1644,2026-01-10,USB-C Hub,Accessories,12,45.0
+1645,2026-01-23,Mouse,Accessories,17,20.0
+1646,2026-02-06,External SSD,Storage,2,120.0
+1647,2026-02-19,Monitor,Electronics,7,200.0
+1648,2026-03-04,Office Chair,Furniture,13,180.0
+1649,2026-03-17,USB-C Hub,Accessories,18,45.0
+1650,2026-03-30,Mouse,Accessories,3,20.0
+1651,2026-04-12,External SSD,Storage,8,120.0
+1652,2026-04-25,Monitor,Electronics,13,200.0
+1653,2026-05-08,Office Chair,Furniture,18,180.0
+1654,2026-05-21,Webcam,Electronics,3,60.0
+1655,2026-06-03,Laptop,Electronics,8,800.0
+1656,2026-06-16,Tablet,Electronics,13,350.0
+1657,2026-06-29,Keyboard,Accessories,19,50.0
+1658,2026-07-12,Desk Lamp,Office Supplies,4,35.0
+1659,2026-07-25,Headphones,Accessories,9,75.0
+1660,2026-08-07,Laptop,Electronics,14,800.0
+1661,2026-08-20,Tablet,Electronics,19,350.0
+1662,2026-09-02,Keyboard,Accessories,4,50.0
+1663,2026-09-16,Desk Lamp,Office Supplies,9,35.0
+1664,2026-09-29,Headphones,Accessories,14,75.0
+1665,2026-01-05,Notebook,Office Supplies,19,4.5
+1666,2026-01-18,USB-C Hub,Accessories,5,45.0
+1667,2026-01-31,Mouse,Accessories,10,20.0
+1668,2026-02-13,External SSD,Storage,15,120.0
+1669,2026-02-26,Monitor,Electronics,20,200.0
+1670,2026-03-11,Office Chair,Furniture,5,0
+1671,2026-03-24,USB-C Hub,Accessories,10,45.0
+1672,2026-04-06,Mouse,Accessories,15,20.0
+1673,2026-04-19,External SSD,Storage,20,120.0
+1674,2026-05-02,Monitor,Electronics,5,200.0
+1675,2026-05-15,Office Chair,Furniture,11,180.0
+1676,2026-05-28,Webcam,Electronics,16,60.0
+1677,2026-06-10,Laptop,Electronics,1,800.0
+1678,2026-06-23,Tablet,Electronics,6,350.0
+1679,2026-07-06,Keyboard,Accessories,11,50.0
+1680,2026-07-20,Desk Lamp,Office Supplies,16,35.0
+1681,2026-08-02,Headphones,Accessories,1,75.0
+1682,2026-08-15,Laptop,Electronics,6,800.0
+1683,2026-08-28,Tablet,Electronics,11,350.0
+1684,2026-09-10,Keyboard,Accessories,17,50.0
+1685,2026-09-23,Desk Lamp,Office Supplies,2,35.0
+1686,2026-10-06,Headphones,Accessories,7,75.0
+1687,2026-01-12,Notebook,Office Supplies,12,4.5
+1688,2026-01-25,USB-C Hub,Accessories,17,45.0
+1689,2026-02-07,Mouse,Accessories,2,20.0
+1690,2026-02-20,External SSD,Storage,7,120.0
+1691,2026-03-05,Monitor,Electronics,12,200.0
+1692,2026-03-18,Office Chair,Furniture,17,180.0
+1693,2026-03-31,USB-C Hub,Accessories,3,45.0
+1694,2026-04-13,Mouse,Accessories,8,20.0
+1695,2026-04-26,External SSD,Storage,13,120.0
+1696,2026-05-09,Monitor,Electronics,18,200.0
+1697,2026-05-23,Office Chair,Furniture,3,180.0
+1698,2026-06-05,Webcam,Electronics,8,60.0
+1699,2026-06-18,Laptop,Electronics,13,800.0
+1700,2026-07-01,Tablet,Electronics,18,350.0
+1701,2026-07-14,Keyboard,Accessories,3,50.0
+1702,2026-07-27,Desk Lamp,Office Supplies,9,35.0
+1703,2026-08-09,Headphones,Accessories,14,75.0
+1704,2026-08-22,Laptop,Electronics,19,800.0
+1705,2026-09-04,Tablet,Electronics,4,350.0
+1706,2026-09-17,Keyboard,Accessories,9,50.0
+1707,2026-09-30,Desk Lamp,Office Supplies,14,35.0
+1708,2026-01-06,Headphones,Accessories,19,75.0
+1709,2026-01-19,Notebook,Office Supplies,4,4.5
+1710,2026-02-01,USB-C Hub,Accessories,9,45.0
+1711,2026-02-14,Mouse,Accessories,15,20.0
+1712,2026-02-27,External SSD,Storage,20,120.0
+1713,2026-03-12,Monitor,Electronics,5,200.0
+1714,2026-03-26,Office Chair,Furniture,10,-25.0
+1715,2026-04-08,USB-C Hub,Accessories,15,45.0
+1716,2026-04-21,Mouse,Accessories,20,20.0
+1717,2026-05-04,External SSD,Storage,5,120.0
+1718,2026-05-17,Monitor,Electronics,10,200.0
+1719,2026-05-30,Office Chair,Furniture,15,180.0
+1720,2026-06-12,Webcam,Electronics,1,60.0
+1721,2026-06-25,Laptop,Electronics,6,800.0
+1722,2026-07-08,Tablet,Electronics,11,350.0
+1723,2026-07-21,Keyboard,Accessories,16,50.0
+1724,2026-08-03,Desk Lamp,Office Supplies,1,35.0
+1725,2026-08-16,Headphones,Accessories,6,75.0
+1726,2026-08-29,Laptop,Electronics,11,800.0
+1727,2026-09-11,Tablet,Electronics,16,350.0
+1728,2026-09-24,Keyboard,Accessories,1,50.0
+1729,2026-10-07,Desk Lamp,Office Supplies,7,35.0
+1730,2026-01-13,Headphones,Accessories,12,75.0
+1731,2026-01-27,Notebook,Office Supplies,17,4.5
+1732,2026-02-09,USB-C Hub,Accessories,2,45.0
+1733,2026-02-22,Mouse,Accessories,7,20.0
+1734,2026-03-07,External SSD,Storage,12,120.0
+1735,2026-03-20,Monitor,Electronics,17,200.0
+1736,2026-04-02,Office Chair,Furniture,2,180.0
+1737,2026-04-15,USB-C Hub,Accessories,7,45.0
+1738,2026-04-28,Mouse,Accessories,13,20.0
+1739,2026-05-11,External SSD,Storage,18,120.0
+1740,2026-05-24,Monitor,Electronics,3,200.0
+1741,2026-06-06,Office Chair,Furniture,8,180.0
+1742,2026-06-19,Webcam,Electronics,13,60.0
+1743,2026-07-02,Laptop,Electronics,18,800.0
+1744,2026-07-15,Tablet,Electronics,3,350.0
+1745,2026-07-28,Keyboard,Accessories,8,50.0
+1746,2026-08-10,Desk Lamp,Office Supplies,13,35.0
+1747,2026-08-23,Headphones,Accessories,19,75.0
+1748,2026-09-06,Laptop,Electronics,4,800.0
+1749,2026-09-19,Tablet,Electronics,9,350.0
+1750,2026-10-02,Keyboard,Accessories,14,50.0
+1751,2026-01-08,Desk Lamp,Office Supplies,19,35.0
+1752,2026-01-21,Headphones,Accessories,4,75.0
+1753,2026-02-03,Notebook,Office Supplies,9,4.5
+1754,2026-02-16,USB-C Hub,Accessories,14,45.0
+1755,2026-03-01,Mouse,Accessories,19,20.0
+1756,2026-03-14,External SSD,Storage,5,120.0
+1757,2026-03-27,Monitor,Electronics,10,200.0
+1758,2026-04-09,Office Chair,Furniture,15,180.0
+1759,2026-04-22,USB-C Hub,Accessories,20,45.0
+1760,2026-05-05,Mouse,Accessories,5,20.0
+1761,2026-05-18,External SSD,Storage,10,120.0
+1762,2026-05-31,Monitor,Electronics,15,200.0
+1763,2026-06-13,Office Chair,Furniture,20,180.0
+1764,2026-06-26,Webcam,Electronics,5,60.0
+1765,2026-07-10,Laptop,Electronics,11,800.0
+1766,2026-07-23,Tablet,Electronics,16,350.0
+1767,2026-08-05,Keyboard,Accessories,1,50.0
+1768,2026-08-18,Desk Lamp,Office Supplies,6,35.0
+1769,2026-08-31,Headphones,Accessories,11,75.0
+1770,2026-09-13,Laptop,Electronics,16,800.0
+1771,2026-09-26,Tablet,Electronics,1,350.0
+1772,2026-01-02,Keyboard,Accessories,6,50.0
+1773,2026-01-15,Desk Lamp,Office Supplies,11,35.0
+1774,2026-01-28,Headphones,Accessories,17,75.0
+1775,2026-02-10,Notebook,Office Supplies,2,4.5
+1776,2026-02-23,USB-C Hub,Accessories,7,45.0
+1777,2026-03-08,Mouse,Accessories,12,20.0
+1778,2026-03-21,External SSD,Storage,17,120.0
+1779,2026-04-03,Monitor,Electronics,2,200.0
+1780,2026-04-16,Office Chair,Furniture,7,180.0
+1781,2026-04-29,USB-C Hub,Accessories,12,45.0
+1782,2026-05-13,Mouse,Accessories,17,20.0
+1783,2026-05-26,External SSD,Storage,3,120.0
+1784,2026-06-08,Monitor,Electronics,8,200.0
+1785,2026-06-21,Office Chair,Furniture,13,180.0
+1786,2026-07-04,Webcam,Electronics,18,60.0
+1787,2026-07-17,Laptop,Electronics,3,800.0
+1788,2026-07-30,Tablet,Electronics,8,350.0
+1789,2026-08-12,Keyboard,Accessories,13,50.0
+1790,2026-08-25,Desk Lamp,Office Supplies,18,35.0
+1791,2026-09-07,Headphones,Accessories,3,75.0
+1792,2026-09-20,Laptop,Electronics,9,800.0
+1793,2026-10-03,Tablet,Electronics,14,350.0
+1794,2026-01-09,Keyboard,Accessories,19,50.0
+1795,2026-01-22,Desk Lamp,Office Supplies,4,35.0
+1796,2026-02-04,Headphones,Accessories,9,75.0
+1797,2026-02-17,Notebook,Office Supplies,14,4.5
+1798,2026-03-02,USB-C Hub,Accessories,19,45.0
+1799,2026-03-16,Mouse,Accessories,4,20.0
+1800,2026-03-29,External SSD,Storage,9,120.0
+1801,2026-04-11,Monitor,Electronics,15,200.0
+1802,2026-04-24,Office Chair,Furniture,20,180.0
+1803,2026-05-07,USB-C Hub,Accessories,5,45.0
+1804,2026-05-20,Mouse,Accessories,10,20.0
+1805,2026-06-02,External SSD,Storage,15,120.0
+1806,2026-06-15,Monitor,Electronics,20,200.0
+1807,2026-06-28,Office Chair,Furniture,5,180.0
+1808,2026-07-11,Webcam,Electronics,10,60.0
+1809,2026-07-24,Laptop,Electronics,15,800.0
+1810,2026-08-06,Tablet,Electronics,1,350.0
+1811,2026-08-19,Keyboard,Accessories,6,50.0
+1812,2026-09-01,Desk Lamp,Office Supplies,11,35.0
+1813,2026-09-14,Headphones,Accessories,16,75.0
+1814,2026-09-27,Laptop,Electronics,1,800.0
+1815,2026-01-03,Tablet,Electronics,6,350.0
+1816,2026-01-17,Keyboard,Accessories,11,50.0
+1817,2026-01-30,Desk Lamp,Office Supplies,16,35.0
+1818,2026-02-12,Headphones,Accessories,1,75.0
+1819,2026-02-25,Notebook,Office Supplies,7,4.5
+1820,2026-03-10,USB-C Hub,Accessories,12,45.0
+1821,2026-03-23,Mouse,Accessories,17,20.0
+1822,2026-04-05,External SSD,Storage,2,120.0
+1823,2026-04-18,Monitor,Electronics,7,200.0
+1824,2026-05-01,Office Chair,Furniture,12,180.0
+1825,2026-05-14,USB-C Hub,Accessories,17,45.0
+1826,2026-05-27,Mouse,Accessories,2,20.0
+1827,2026-06-09,External SSD,Storage,7,120.0
+1828,2026-06-22,Monitor,Electronics,13,200.0
+1829,2026-07-05,Office Chair,Furniture,18,180.0
+1830,2026-07-18,Webcam,Electronics,3,60.0
+1831,2026-07-31,Laptop,Electronics,8,800.0
+1832,2026-08-13,Tablet,Electronics,13,350.0
+1833,2026-08-27,Keyboard,Accessories,18,50.0
+1834,2026-09-09,Desk Lamp,Office Supplies,3,35.0
+1835,2026-09-22,Headphones,Accessories,8,75.0
+1836,2026-10-05,Laptop,Electronics,13,800.0
+1837,2026-01-11,Tablet,Electronics,19,350.0
+1838,2026-01-24,Keyboard,Accessories,4,50.0
+1839,2026-02-06,Desk Lamp,Office Supplies,9,35.0
+1840,2026-02-19,Headphones,Accessories,14,75.0
+1841,2026-03-04,Notebook,Office Supplies,19,4.5
+1842,2026-03-17,USB-C Hub,Accessories,4,45.0
+1843,2026-03-30,Mouse,Accessories,9,20.0
+1844,2026-04-12,External SSD,Storage,14,120.0
+1845,2026-04-25,Monitor,Electronics,19,200.0
+1846,2026-05-08,Office Chair,Furniture,5,180.0
+1847,2026-05-21,USB-C Hub,Accessories,10,45.0
+1848,2026-06-03,Mouse,Accessories,15,20.0
+1849,2026-06-16,External SSD,Storage,20,120.0
+1850,2026-06-30,Monitor,Electronics,5,200.0
+1851,2026-07-13,Office Chair,Furniture,10,180.0
+1852,2026-07-26,Webcam,Electronics,15,60.0
+1853,2026-08-08,Laptop,Electronics,20,800.0
+1854,2026-08-21,Tablet,Electronics,5,350.0
+1855,2026-09-03,Keyboard,Accessories,11,50.0
+1856,2026-09-16,Desk Lamp,Office Supplies,16,35.0
+1857,2026-09-29,Headphones,Accessories,1,75.0
+1858,2026-01-05,Laptop,Electronics,6,800.0
+1859,2026-01-18,Tablet,Electronics,11,350.0
+1860,2026-01-31,Keyboard,Accessories,16,50.0
+1861,2026-02-13,Desk Lamp,Office Supplies,1,35.0
+1862,2026-02-26,Headphones,Accessories,6,75.0
+1863,2026-03-11,Notebook,Office Supplies,11,4.5
+1864,2026-03-24,USB-C Hub,Accessories,17,45.0
+1865,2026-04-06,Mouse,Accessories,2,20.0
+1866,2026-04-19,External SSD,Storage,7,120.0
+1867,2026-05-03,Monitor,Electronics,12,200.0
+1868,2026-05-16,Office Chair,Furniture,17,180.0
+1869,2026-05-29,USB-C Hub,Accessories,2,45.0
+1870,2026-06-11,Mouse,Accessories,7,20.0
+1871,2026-06-24,External SSD,Storage,12,120.0
+1872,2026-07-07,Monitor,Electronics,17,200.0
+1873,2026-07-20,Office Chair,Furniture,3,180.0
+1874,2026-08-02,Webcam,Electronics,8,60.0
+1875,2026-08-15,Laptop,Electronics,13,800.0
+1876,2026-08-28,Tablet,Electronics,18,350.0
+1877,2026-09-10,Keyboard,Accessories,3,50.0
+1878,2026-09-23,Desk Lamp,Office Supplies,8,35.0
+1879,2026-10-06,Headphones,Accessories,13,75.0
+1880,2026-01-12,Laptop,Electronics,18,800.0
+1881,2026-01-25,Tablet,Electronics,3,350.0
+1882,2026-02-07,Keyboard,Accessories,9,50.0
+1883,2026-02-20,Desk Lamp,Office Supplies,14,35.0
+1884,2026-03-06,Headphones,Accessories,19,75.0
+1885,2026-03-19,Notebook,Office Supplies,4,4.5
+1886,2026-04-01,USB-C Hub,Accessories,9,45.0
+1887,2026-04-14,Mouse,Accessories,14,20.0
+1888,2026-04-27,External SSD,Storage,19,120.0
+1889,2026-05-10,Monitor,Electronics,4,200.0
+1890,2026-05-23,Office Chair,Furniture,9,180.0
+1891,2026-06-05,USB-C Hub,Accessories,15,45.0
+1892,2026-06-18,Mouse,Accessories,20,20.0
+1893,2026-07-01,External SSD,Storage,5,120.0
+1894,2026-07-14,Monitor,Electronics,10,200.0
+1895,2026-07-27,Office Chair,Furniture,15,180.0
+1896,2026-08-09,Webcam,Electronics,20,60.0
+1897,2026-08-22,Laptop,Electronics,5,800.0
+1898,2026-09-04,Tablet,Electronics,10,350.0
+1899,2026-09-17,Keyboard,Accessories,15,50.0
+1900,2026-09-30,Desk Lamp,Office Supplies,1,35.0
+1901,2026-01-07,Headphones,Accessories,6,75.0
+1902,2026-01-20,Laptop,Electronics,11,800.0
+1903,2026-02-02,Tablet,Electronics,16,350.0
+1904,2026-02-15,Keyboard,Accessories,1,50.0
+1905,2026-02-28,Desk Lamp,Office Supplies,6,35.0
+1906,2026-03-13,Headphones,Accessories,11,75.0
+1907,2026-03-26,Notebook,Office Supplies,16,4.5
+1908,2026-04-08,USB-C Hub,Accessories,1,45.0
+1909,2026-04-21,Mouse,Accessories,7,20.0
+1910,2026-05-04,External SSD,Storage,12,120.0
+1911,2026-05-17,Monitor,Electronics,17,200.0
+1912,2026-05-30,Office Chair,Furniture,2,180.0
+1913,2026-06-12,USB-C Hub,Accessories,7,45.0
+1914,2026-06-25,Mouse,Accessories,12,20.0
+1915,2026-07-08,External SSD,Storage,17,120.0
+1916,2026-07-21,Monitor,Electronics,2,200.0
+1917,2026-08-03,Office Chair,Furniture,7,180.0
+1918,2026-08-17,Webcam,Electronics,13,60.0
+1919,2026-08-30,Laptop,Electronics,18,800.0
+1920,2026-09-12,Tablet,Electronics,3,350.0
+1921,2026-09-25,Keyboard,Accessories,8,50.0
+1922,2026-01-01,Desk Lamp,Office Supplies,13,35.0
+1923,2026-01-14,Headphones,Accessories,18,75.0
+1924,2026-01-27,Laptop,Electronics,3,800.0
+1925,2026-02-09,Tablet,Electronics,8,350.0
+1926,2026-02-22,Keyboard,Accessories,13,50.0
+1927,2026-03-07,Desk Lamp,Office Supplies,19,35.0
+1928,2026-03-20,Headphones,Accessories,4,75.0
+1929,2026-04-02,Notebook,Office Supplies,9,4.5
+1930,2026-04-15,USB-C Hub,Accessories,14,45.0
+1931,2026-04-28,Mouse,Accessories,19,20.0
+1932,2026-05-11,External SSD,Storage,4,120.0
+1933,2026-05-24,Monitor,Electronics,9,200.0
+1934,2026-06-06,Office Chair,Furniture,14,180.0
+1935,2026-06-20,USB-C Hub,Accessories,19,45.0
+1936,2026-07-03,Mouse,Accessories,5,20.0
+1937,2026-07-16,External SSD,Storage,10,120.0
+1938,2026-07-29,Monitor,Electronics,15,200.0
+1939,2026-08-11,Office Chair,Furniture,20,180.0
+1940,2026-08-24,Webcam,Electronics,5,60.0
+1941,2026-09-06,Laptop,Electronics,10,800.0
+1942,2026-09-19,Tablet,Electronics,15,350.0
+1943,2026-10-02,Keyboard,Accessories,20,50.0
+1944,2026-01-08,Desk Lamp,Office Supplies,5,35.0
+1945,2026-01-21,Headphones,Accessories,11,75.0
+1946,2026-02-03,Laptop,Electronics,16,800.0
+1947,2026-02-16,Tablet,Electronics,1,350.0
+1948,2026-03-01,Keyboard,Accessories,6,50.0
+1949,2026-03-14,Desk Lamp,Office Supplies,11,35.0
+1950,2026-03-27,Headphones,Accessories,16,75.0
+1951,2026-04-09,Notebook,Office Supplies,1,4.5
+1952,2026-04-23,USB-C Hub,Accessories,6,45.0
+1953,2026-05-06,Mouse,Accessories,11,20.0
+1954,2026-05-19,External SSD,Storage,17,120.0
+1955,2026-06-01,Monitor,Electronics,2,200.0
+1956,2026-06-14,Office Chair,Furniture,7,180.0
+1957,2026-06-27,USB-C Hub,Accessories,12,45.0
+1958,2026-07-10,Mouse,Accessories,17,20.0
+1959,2026-07-23,External SSD,Storage,2,120.0
+1960,2026-08-05,Monitor,Electronics,7,200.0
+1961,2026-08-18,Office Chair,Furniture,12,180.0
+1962,2026-08-31,Webcam,Electronics,17,60.0
+1963,2026-09-13,Laptop,Electronics,3,800.0
+1964,2026-09-26,Tablet,Electronics,8,350.0
+1965,2026-01-02,Keyboard,Accessories,13,50.0
+1966,2026-01-15,Desk Lamp,Office Supplies,18,35.0
+1967,2026-01-28,Headphones,Accessories,3,75.0
+1968,2026-02-10,Laptop,Electronics,8,800.0
+1969,2026-02-24,Tablet,Electronics,13,350.0
+1970,2026-03-09,Keyboard,Accessories,18,50.0
+1971,2026-03-22,Desk Lamp,Office Supplies,3,35.0
+1972,2026-04-04,Headphones,Accessories,9,75.0
+1973,2026-04-17,Notebook,Office Supplies,14,4.5
+1974,2026-04-30,USB-C Hub,Accessories,19,45.0
+1975,2026-05-13,Mouse,Accessories,4,20.0
+1976,2026-05-26,External SSD,Storage,9,120.0
+1977,2026-06-08,Monitor,Electronics,14,200.0
+1978,2026-06-21,Office Chair,Furniture,19,180.0
+1979,2026-07-04,USB-C Hub,Accessories,4,45.0
+1980,2026-07-17,Mouse,Accessories,9,20.0
+1981,2026-07-30,External SSD,Storage,15,120.0
+1982,2026-08-12,Monitor,Electronics,20,200.0
+1983,2026-08-25,Office Chair,Furniture,5,180.0
+1984,2026-09-07,Webcam,Electronics,10,60.0
+1985,2026-09-20,Laptop,Electronics,15,800.0
+1986,2026-10-04,Tablet,Electronics,20,350.0
+1987,2026-01-10,Keyboard,Accessories,5,50.0
+1988,2026-01-23,Desk Lamp,Office Supplies,10,35.0
+1989,2026-02-05,Headphones,Accessories,15,75.0
+1990,2026-02-18,Laptop,Electronics,1,800.0
+1991,2026-03-03,Tablet,Electronics,6,350.0
+1992,2026-03-16,Keyboard,Accessories,11,50.0
+1993,2026-03-29,Desk Lamp,Office Supplies,16,35.0
+1994,2026-04-11,Headphones,Accessories,1,75.0
+1995,2026-04-24,Notebook,Office Supplies,6,4.5
+1996,2026-05-07,USB-C Hub,Accessories,11,45.0
+1997,2026-05-20,Mouse,Accessories,16,20.0
+1998,2026-06-02,External SSD,Storage,1,120.0
+1999,2026-06-15,Monitor,Electronics,7,200.0
+2000,2026-06-28,Office Chair,Furniture,12,180.0
+2001,2026-07-11,USB-C Hub,Accessories,17,45.0
+2002,2026-07-24,Mouse,Accessories,2,20.0
+2003,2026-08-07,External SSD,Storage,7,120.0
+2004,2026-08-20,Monitor,Electronics,12,200.0
+2005,2026-09-02,Office Chair,Furniture,17,180.0
+2006,2026-09-15,Webcam,Electronics,2,60.0
+2007,2026-09-28,Laptop,Electronics,7,800.0
+2008,2026-01-04,Tablet,Electronics,13,350.0
+2009,2026-01-17,Keyboard,Accessories,18,50.0
+2010,2026-01-30,Desk Lamp,Office Supplies,3,35.0
+2011,2026-02-12,Headphones,Accessories,8,75.0
+2012,2026-02-25,Laptop,Electronics,13,800.0
+2013,2026-03-10,Tablet,Electronics,18,350.0
+2014,2026-03-23,Keyboard,Accessories,3,50.0
+2015,2026-04-05,Desk Lamp,Office Supplies,8,35.0
+2016,2026-04-18,Headphones,Accessories,13,75.0
+2017,2026-05-01,Notebook,Office Supplies,19,4.5
+2018,2026-05-14,USB-C Hub,Accessories,4,45.0
+2019,2026-05-27,Mouse,Accessories,9,20.0
+2020,2026-06-10,External SSD,Storage,14,120.0
+2021,2026-06-23,Monitor,Electronics,19,200.0
+2022,2026-07-06,Office Chair,Furniture,4,180.0
+2023,2026-07-19,USB-C Hub,Accessories,9,45.0
+2024,2026-08-01,Mouse,Accessories,14,20.0
+2025,2026-08-14,External SSD,Storage,19,120.0
+2026,2026-08-27,Monitor,Electronics,5,200.0
+2027,2026-09-09,Office Chair,Furniture,10,180.0
+2028,2026-09-22,Webcam,Electronics,15,60.0
+2029,2026-10-05,Laptop,Electronics,20,800.0
+2030,2026-01-11,Tablet,Electronics,5,350.0
+2031,2026-01-24,Keyboard,Accessories,10,50.0
+2032,2026-02-06,Desk Lamp,Office Supplies,15,35.0
+2033,2026-02-19,Headphones,Accessories,20,75.0
+2034,2026-03-04,Laptop,Electronics,5,800.0
+2035,2026-03-17,Tablet,Electronics,11,350.0
+2036,2026-03-30,Keyboard,Accessories,16,50.0
+2037,2026-04-13,Desk Lamp,Office Supplies,1,35.0
+2038,2026-04-26,Headphones,Accessories,6,75.0
+2039,2026-05-09,Notebook,Office Supplies,11,4.5
+2040,2026-05-22,USB-C Hub,Accessories,16,45.0
+2041,2026-06-04,Mouse,Accessories,1,20.0
+2042,2026-06-17,External SSD,Storage,6,120.0
+2043,2026-06-30,Monitor,Electronics,11,200.0
+2044,2026-07-13,Office Chair,Furniture,17,180.0
+2045,2026-07-26,USB-C Hub,Accessories,2,45.0
+2046,2026-08-08,Mouse,Accessories,7,20.0
+2047,2026-08-21,External SSD,Storage,12,120.0
+2048,2026-09-03,Monitor,Electronics,17,200.0
+2049,2026-09-16,Office Chair,Furniture,2,180.0
+2050,2026-09-29,Webcam,Electronics,7,60.0
+2051,2026-01-05,Laptop,Electronics,12,800.0
+2052,2026-01-18,Tablet,Electronics,17,350.0
+2053,2026-01-31,Keyboard,Accessories,3,50.0
+2054,2026-02-14,Desk Lamp,Office Supplies,8,35.0
+2055,2026-02-27,Headphones,Accessories,13,75.0
+2056,2026-03-12,Laptop,Electronics,18,800.0
+2057,2026-03-25,Tablet,Electronics,3,350.0
+2058,2026-04-07,Keyboard,Accessories,8,50.0
+2059,2026-04-20,Desk Lamp,Office Supplies,13,35.0
+2060,2026-05-03,Headphones,Accessories,18,75.0
+2061,2026-05-16,Notebook,Office Supplies,3,4.5
+2062,2026-05-29,USB-C Hub,Accessories,9,45.0
+2063,2026-06-11,Mouse,Accessories,14,20.0
+2064,2026-06-24,External SSD,Storage,19,120.0
+2065,2026-07-07,Monitor,Electronics,4,200.0
+2066,2026-07-20,Office Chair,Furniture,9,180.0
+2067,2026-08-02,USB-C Hub,Accessories,14,45.0
+2068,2026-08-15,Mouse,Accessories,19,20.0
+2069,2026-08-28,External SSD,Storage,4,120.0
+2070,2026-09-10,Monitor,Electronics,9,200.0
+2071,2026-09-24,Office Chair,Furniture,15,180.0
+2072,2026-10-07,Webcam,Electronics,20,60.0
+2073,2026-01-13,Laptop,Electronics,5,800.0
+2074,2026-01-26,Tablet,Electronics,10,350.0
+2075,2026-02-08,Keyboard,Accessories,15,50.0
+2076,2026-02-21,Desk Lamp,Office Supplies,20,35.0
+2077,2026-03-06,Headphones,Accessories,5,75.0
+2078,2026-03-19,Laptop,Electronics,10,800.0
+2079,2026-04-01,Tablet,Electronics,15,350.0
+2080,2026-04-14,Keyboard,Accessories,1,50.0
+2081,2026-04-27,Desk Lamp,Office Supplies,6,35.0
+2082,2026-05-10,Headphones,Accessories,11,75.0
+2083,2026-05-23,Notebook,Office Supplies,16,4.5
+2084,2026-06-05,USB-C Hub,Accessories,1,45.0
+2085,2026-06-18,Mouse,Accessories,6,20.0
+2086,2026-07-01,External SSD,Storage,11,120.0
+2087,2026-07-14,Monitor,Electronics,16,200.0
+2088,2026-07-28,Office Chair,Furniture,1,180.0
+2089,2026-08-10,USB-C Hub,Accessories,7,45.0
+2090,2026-08-23,Mouse,Accessories,12,20.0
+2091,2026-09-05,External SSD,Storage,17,120.0
+2092,2026-09-18,Monitor,Electronics,2,200.0
+2093,2026-10-01,Office Chair,Furniture,7,180.0
+2094,2026-01-07,Webcam,Electronics,12,60.0
+2095,2026-01-20,Laptop,Electronics,17,800.0
+2096,2026-02-02,Tablet,Electronics,2,350.0
+2097,2026-02-15,Keyboard,Accessories,7,50.0
+2098,2026-02-28,Desk Lamp,Office Supplies,13,35.0
+2099,2026-03-13,Headphones,Accessories,18,75.0
+2100,2026-03-26,Laptop,Electronics,3,800.0
+2101,2026-04-08,Tablet,Electronics,8,350.0
+2102,2026-04-21,Keyboard,Accessories,13,50.0
+2103,2026-05-04,Desk Lamp,Office Supplies,18,35.0
+2104,2026-05-17,Headphones,Accessories,3,75.0
+2105,2026-05-31,Notebook,Office Supplies,8,4.5
+2106,2026-06-13,USB-C Hub,Accessories,13,45.0
+2107,2026-06-26,Mouse,Accessories,19,20.0
+2108,2026-07-09,External SSD,Storage,4,120.0
+2109,2026-07-22,Monitor,Electronics,9,200.0
+2110,2026-08-04,Office Chair,Furniture,14,180.0
+2111,2026-08-17,USB-C Hub,Accessories,19,45.0
+2112,2026-08-30,Mouse,Accessories,4,20.0
+2113,2026-09-12,External SSD,Storage,9,120.0
+2114,2026-09-25,Monitor,Electronics,14,200.0
+2115,2026-01-01,Office Chair,Furniture,19,180.0
+2116,2026-01-14,Webcam,Electronics,5,60.0
+2117,2026-01-27,Laptop,Electronics,10,800.0
+2118,2026-02-09,Tablet,Electronics,15,350.0
+2119,2026-02-22,Keyboard,Accessories,20,50.0
+2120,2026-03-07,Desk Lamp,Office Supplies,5,35.0
+2121,2026-03-20,Headphones,Accessories,10,75.0
+2122,2026-04-03,Laptop,Electronics,15,800.0
+2123,2026-04-16,Tablet,Electronics,20,350.0
+2124,2026-04-29,Keyboard,Accessories,5,50.0
+2125,2026-05-12,Desk Lamp,Office Supplies,11,35.0
+2126,2026-05-25,Headphones,Accessories,16,75.0
+2127,2026-06-07,Notebook,Office Supplies,1,4.5
+2128,2026-06-20,USB-C Hub,Accessories,6,45.0
+2129,2026-07-03,Mouse,Accessories,11,20.0
+2130,2026-07-16,External SSD,Storage,16,120.0
+2131,2026-07-29,Monitor,Electronics,1,200.0
+2132,2026-08-11,Office Chair,Furniture,6,180.0
+2133,2026-08-24,USB-C Hub,Accessories,11,45.0
+2134,2026-09-06,Mouse,Accessories,17,20.0
+2135,2026-09-19,External SSD,Storage,2,120.0
+2136,2026-10-02,Monitor,Electronics,7,200.0
+2137,2026-01-08,Office Chair,Furniture,12,180.0
+2138,2026-01-21,Webcam,Electronics,17,60.0
+2139,2026-02-04,Laptop,Electronics,2,800.0
+2140,2026-02-17,Tablet,Electronics,7,350.0
+2141,2026-03-02,Keyboard,Accessories,12,50.0
+2142,2026-03-15,Desk Lamp,Office Supplies,17,35.0
+2143,2026-03-28,Headphones,Accessories,3,75.0
+2144,2026-04-10,Laptop,Electronics,8,800.0
+2145,2026-04-23,Tablet,Electronics,13,350.0
+2146,2026-05-06,Keyboard,Accessories,18,50.0
+2147,2026-05-19,Desk Lamp,Office Supplies,3,35.0
+2148,2026-06-01,Headphones,Accessories,8,75.0
+2149,2026-06-14,Notebook,Office Supplies,13,4.5
+2150,2026-06-27,USB-C Hub,Accessories,18,45.0
+2151,2026-07-10,Mouse,Accessories,3,20.0
+2152,2026-07-23,External SSD,Storage,9,120.0
+2153,2026-08-05,Monitor,Electronics,14,200.0
+2154,2026-08-18,Office Chair,Furniture,19,180.0
+2155,2026-08-31,USB-C Hub,Accessories,4,45.0
+2156,2026-09-14,Mouse,Accessories,9,20.0
+2157,2026-09-27,External SSD,Storage,14,120.0
+2158,2026-01-03,Monitor,Electronics,19,200.0
+2159,2026-01-16,Office Chair,Furniture,4,180.0
+2160,2026-01-29,Webcam,Electronics,9,60.0
+2161,2026-02-11,Laptop,Electronics,15,800.0
+2162,2026-02-24,Tablet,Electronics,20,350.0
+2163,2026-03-09,Keyboard,Accessories,5,50.0
+2164,2026-03-22,Desk Lamp,Office Supplies,10,35.0
+2165,2026-04-04,Headphones,Accessories,15,75.0
+2166,2026-04-17,Laptop,Electronics,20,800.0
+2167,2026-04-30,Tablet,Electronics,5,350.0
+2168,2026-05-13,Keyboard,Accessories,10,50.0
+2169,2026-05-26,Desk Lamp,Office Supplies,15,35.0
+2170,2026-06-08,Headphones,Accessories,1,75.0
+2171,2026-06-21,Notebook,Office Supplies,6,4.5
+2172,2026-07-04,USB-C Hub,Accessories,11,45.0
+2173,2026-07-18,Mouse,Accessories,16,20.0
+2174,2026-07-31,External SSD,Storage,1,120.0
+2175,2026-08-13,Monitor,Electronics,6,200.0
+2176,2026-08-26,Office Chair,Furniture,11,180.0
+2177,2026-09-08,USB-C Hub,Accessories,16,45.0
+2178,2026-09-21,Mouse,Accessories,1,20.0
+2179,2026-10-04,External SSD,Storage,7,120.0
+2180,2026-01-10,Monitor,Electronics,12,200.0
+2181,2026-01-23,Office Chair,Furniture,17,180.0
+2182,2026-02-05,Webcam,Electronics,2,60.0
+2183,2026-02-18,Laptop,Electronics,7,800.0
+2184,2026-03-03,Tablet,Electronics,12,350.0
+2185,2026-03-16,Keyboard,Accessories,17,50.0
+2186,2026-03-29,Desk Lamp,Office Supplies,2,35.0
+2187,2026-04-11,Headphones,Accessories,7,75.0
+2188,2026-04-24,Laptop,Electronics,13,800.0
+2189,2026-05-07,Tablet,Electronics,18,350.0
+2190,2026-05-21,Keyboard,Accessories,3,50.0
+2191,2026-06-03,Desk Lamp,Office Supplies,8,35.0
+2192,2026-06-16,Headphones,Accessories,13,75.0
+2193,2026-06-29,Notebook,Office Supplies,18,4.5
+2194,2026-07-12,USB-C Hub,Accessories,3,45.0
+2195,2026-07-25,Mouse,Accessories,8,20.0
+2196,2026-08-07,External SSD,Storage,13,120.0
+2197,2026-08-20,Monitor,Electronics,19,200.0
+2198,2026-09-02,Office Chair,Furniture,4,180.0
+2199,2026-09-15,USB-C Hub,Accessories,9,45.0
+2200,2026-09-28,Mouse,Accessories,14,20.0
+2201,2026-01-04,External SSD,Storage,19,120.0
+2202,2026-01-17,Monitor,Electronics,4,200.0
+2203,2026-01-30,Office Chair,Furniture,9,180.0
+2204,2026-02-12,Webcam,Electronics,14,60.0
+2205,2026-02-25,Laptop,Electronics,19,800.0
+2206,2026-03-10,Tablet,Electronics,5,350.0
+2207,2026-03-24,Keyboard,Accessories,10,50.0
+2208,2026-04-06,Desk Lamp,Office Supplies,15,35.0
+2209,2026-04-19,Headphones,Accessories,20,75.0
+2210,2026-05-02,Laptop,Electronics,5,800.0
+2211,2026-05-15,Tablet,Electronics,10,350.0
+2212,2026-05-28,Keyboard,Accessories,15,50.0
+2213,2026-06-10,Desk Lamp,Office Supplies,20,35.0
+2214,2026-06-23,Headphones,Accessories,5,75.0
+2215,2026-07-06,Notebook,Office Supplies,11,4.5
+2216,2026-07-19,USB-C Hub,Accessories,16,45.0
+2217,2026-08-01,Mouse,Accessories,1,20.0
+2218,2026-08-14,External SSD,Storage,6,120.0
+2219,2026-08-27,Monitor,Electronics,11,200.0
+2220,2026-09-09,Office Chair,Furniture,16,180.0
+2221,2026-09-22,USB-C Hub,Accessories,1,45.0
+2222,2026-10-05,Mouse,Accessories,6,20.0
+2223,2026-01-11,External SSD,Storage,11,120.0
+2224,2026-01-25,Monitor,Electronics,17,200.0
+2225,2026-02-07,Office Chair,Furniture,2,180.0
+2226,2026-02-20,Webcam,Electronics,7,60.0
+2227,2026-03-05,Laptop,Electronics,12,800.0
+2228,2026-03-18,Tablet,Electronics,17,350.0
+2229,2026-03-31,Keyboard,Accessories,2,50.0
+2230,2026-04-13,Desk Lamp,Office Supplies,7,35.0
+2231,2026-04-26,Headphones,Accessories,12,75.0
+2232,2026-05-09,Laptop,Electronics,17,800.0
+2233,2026-05-22,Tablet,Electronics,3,350.0
+2234,2026-06-04,Keyboard,Accessories,8,50.0
+2235,2026-06-17,Desk Lamp,Office Supplies,13,35.0
+2236,2026-06-30,Headphones,Accessories,18,75.0
+2237,2026-07-13,Notebook,Office Supplies,3,4.5
+2238,2026-07-26,USB-C Hub,Accessories,8,45.0
+2239,2026-08-08,Mouse,Accessories,13,20.0
+2240,2026-08-21,External SSD,Storage,18,120.0
+2241,2026-09-04,Monitor,Electronics,3,200.0
+2242,2026-09-17,Office Chair,Furniture,9,180.0
+2243,2026-09-30,USB-C Hub,Accessories,14,45.0
+2244,2026-01-06,Mouse,Accessories,19,20.0
+2245,2026-01-19,External SSD,Storage,4,120.0
+2246,2026-02-01,Monitor,Electronics,9,200.0
+2247,2026-02-14,Office Chair,Furniture,14,180.0
+2248,2026-02-27,Webcam,Electronics,19,60.0
+2249,2026-03-12,Laptop,Electronics,4,800.0
+2250,2026-03-25,Tablet,Electronics,9,350.0
+2251,2026-04-07,Keyboard,Accessories,15,50.0
+2252,2026-04-20,Desk Lamp,Office Supplies,20,35.0
+2253,2026-05-03,Headphones,Accessories,5,75.0
+2254,2026-05-16,Laptop,Electronics,10,800.0
+2255,2026-05-29,Tablet,Electronics,15,350.0
+2256,2026-06-11,Keyboard,Accessories,20,50.0
+2257,2026-06-24,Desk Lamp,Office Supplies,5,35.0
+2258,2026-07-08,Headphones,Accessories,10,75.0
+2259,2026-07-21,Notebook,Office Supplies,15,4.5
+2260,2026-08-03,USB-C Hub,Accessories,1,45.0
+2261,2026-08-16,Mouse,Accessories,6,20.0
+2262,2026-08-29,External SSD,Storage,11,120.0
+2263,2026-09-11,Monitor,Electronics,16,200.0
+2264,2026-09-24,Office Chair,Furniture,1,180.0
+2265,2026-10-07,USB-C Hub,Accessories,6,45.0
+2266,2026-01-13,Mouse,Accessories,11,20.0
+2267,2026-01-26,External SSD,Storage,16,120.0
+2268,2026-02-08,Monitor,Electronics,1,200.0
+2269,2026-02-21,Office Chair,Furniture,7,180.0
+2270,2026-03-06,Webcam,Electronics,12,60.0
+2271,2026-03-19,Laptop,Electronics,17,800.0
+2272,2026-04-01,Tablet,Electronics,2,350.0
+2273,2026-04-14,Keyboard,Accessories,7,50.0
+2274,2026-04-27,Desk Lamp,Office Supplies,12,35.0
+2275,2026-05-11,Headphones,Accessories,17,75.0
+2276,2026-05-24,Laptop,Electronics,2,800.0
+2277,2026-06-06,Tablet,Electronics,7,350.0
+2278,2026-06-19,Keyboard,Accessories,13,50.0
+2279,2026-07-02,Desk Lamp,Office Supplies,18,35.0
+2280,2026-07-15,Headphones,Accessories,3,75.0
+2281,2026-07-28,Notebook,Office Supplies,8,4.5
+2282,2026-08-10,USB-C Hub,Accessories,13,45.0
+2283,2026-08-23,Mouse,Accessories,18,20.0
+2284,2026-09-05,External SSD,Storage,3,120.0
+2285,2026-09-18,Monitor,Electronics,8,200.0
+2286,2026-10-01,Office Chair,Furniture,13,180.0
+2287,2026-01-07,USB-C Hub,Accessories,19,45.0
+2288,2026-01-20,Mouse,Accessories,4,20.0
+2289,2026-02-02,External SSD,Storage,9,120.0
+2290,2026-02-15,Monitor,Electronics,14,200.0
+2291,2026-02-28,Office Chair,Furniture,19,180.0
+2292,2026-03-14,Webcam,Electronics,4,60.0
+2293,2026-03-27,Laptop,Electronics,9,800.0
+2294,2026-04-09,Tablet,Electronics,14,350.0
+2295,2026-04-22,Keyboard,Accessories,19,50.0
+2296,2026-05-05,Desk Lamp,Office Supplies,5,35.0
+2297,2026-05-18,Headphones,Accessories,10,75.0
+2298,2026-05-31,Laptop,Electronics,15,800.0
+2299,2026-06-13,Tablet,Electronics,20,350.0
+2300,2026-06-26,Keyboard,Accessories,5,50.0
+2301,2026-07-09,Desk Lamp,Office Supplies,10,35.0
+2302,2026-07-22,Headphones,Accessories,15,75.0
+2303,2026-08-04,Notebook,Office Supplies,20,4.5
+2304,2026-08-17,USB-C Hub,Accessories,5,45.0
+2305,2026-08-30,Mouse,Accessories,11,20.0
+2306,2026-09-12,External SSD,Storage,16,120.0
+2307,2026-09-25,Monitor,Electronics,1,200.0
+2308,2026-01-01,Office Chair,Furniture,6,180.0
+2309,2026-01-15,USB-C Hub,Accessories,11,45.0
+2310,2026-01-28,Mouse,Accessories,16,20.0
+2311,2026-02-10,External SSD,Storage,1,120.0
+2312,2026-02-23,Monitor,Electronics,6,200.0
+2313,2026-03-08,Office Chair,Furniture,11,180.0
+2314,2026-03-21,Webcam,Electronics,17,60.0
+2315,2026-04-03,Laptop,Electronics,2,800.0
+2316,2026-04-16,Tablet,Electronics,7,350.0
+2317,2026-04-29,Keyboard,Accessories,12,50.0
+2318,2026-05-12,Desk Lamp,Office Supplies,17,35.0
+2319,2026-05-25,Headphones,Accessories,2,75.0
+2320,2026-06-07,Laptop,Electronics,7,800.0
+2321,2026-06-20,Tablet,Electronics,12,350.0
+2322,2026-07-03,Keyboard,Accessories,17,50.0
+2323,2026-07-16,Desk Lamp,Office Supplies,3,35.0
+2324,2026-07-29,Headphones,Accessories,8,75.0
+2325,2026-08-11,Notebook,Office Supplies,13,4.5
+2326,2026-08-25,USB-C Hub,Accessories,18,45.0
+2327,2026-09-07,Mouse,Accessories,3,20.0
+2328,2026-09-20,External SSD,Storage,8,120.0
+2329,2026-10-03,Monitor,Electronics,13,200.0
+2330,2026-01-09,Office Chair,Furniture,18,180.0
+2331,2026-01-22,USB-C Hub,Accessories,3,45.0
+2332,2026-02-04,Mouse,Accessories,9,20.0
+2333,2026-02-17,External SSD,Storage,14,120.0
+2334,2026-03-02,Monitor,Electronics,19,200.0
+2335,2026-03-15,Office Chair,Furniture,4,180.0
+2336,2026-03-28,Webcam,Electronics,9,60.0
+2337,2026-04-10,Laptop,Electronics,14,800.0
+2338,2026-04-23,Tablet,Electronics,19,350.0
+2339,2026-05-06,Keyboard,Accessories,4,50.0
+2340,2026-05-19,Desk Lamp,Office Supplies,9,35.0
+2341,2026-06-01,Headphones,Accessories,15,75.0
+2342,2026-06-14,Laptop,Electronics,20,800.0
+2343,2026-06-28,Tablet,Electronics,5,350.0
+2344,2026-07-11,Keyboard,Accessories,10,50.0
+2345,2026-07-24,Desk Lamp,Office Supplies,15,35.0
+2346,2026-08-06,Headphones,Accessories,20,75.0
+2347,2026-08-19,Notebook,Office Supplies,5,4.5
+2348,2026-09-01,USB-C Hub,Accessories,10,45.0
+2349,2026-09-14,Mouse,Accessories,15,20.0
+2350,2026-09-27,External SSD,Storage,1,120.0
+2351,2026-01-03,Monitor,Electronics,6,200.0
+2352,2026-01-16,Office Chair,Furniture,11,180.0
+2353,2026-01-29,USB-C Hub,Accessories,16,45.0
+2354,2026-02-11,Mouse,Accessories,1,20.0
+2355,2026-02-24,External SSD,Storage,6,120.0
+2356,2026-03-09,Monitor,Electronics,11,200.0
+2357,2026-03-22,Office Chair,Furniture,16,180.0
+2358,2026-04-04,Webcam,Electronics,1,60.0
+2359,2026-04-17,Laptop,Electronics,7,800.0
+2360,2026-05-01,Tablet,Electronics,12,350.0
+2361,2026-05-14,Keyboard,Accessories,17,50.0
+2362,2026-05-27,Desk Lamp,Office Supplies,2,35.0
+2363,2026-06-09,Headphones,Accessories,7,75.0
+2364,2026-06-22,Laptop,Electronics,12,800.0
+2365,2026-07-05,Tablet,Electronics,17,350.0
+2366,2026-07-18,Keyboard,Accessories,2,50.0
+2367,2026-07-31,Desk Lamp,Office Supplies,7,35.0
+2368,2026-08-13,Headphones,Accessories,13,75.0
+2369,2026-08-26,Notebook,Office Supplies,18,4.5
+2370,2026-09-08,USB-C Hub,Accessories,3,45.0
+2371,2026-09-21,Mouse,Accessories,8,20.0
+2372,2026-10-04,External SSD,Storage,13,120.0
+2373,2026-01-10,Monitor,Electronics,18,200.0
+2374,2026-01-23,Office Chair,Furniture,3,180.0
+2375,2026-02-05,USB-C Hub,Accessories,8,45.0
+2376,2026-02-18,Mouse,Accessories,13,20.0
+2377,2026-03-04,External SSD,Storage,19,120.0
+2378,2026-03-17,Monitor,Electronics,4,200.0
+2379,2026-03-30,Office Chair,Furniture,9,180.0
+2380,2026-04-12,Webcam,Electronics,14,60.0
+2381,2026-04-25,Laptop,Electronics,19,800.0
+2382,2026-05-08,Tablet,Electronics,4,350.0
+2383,2026-05-21,Keyboard,Accessories,9,50.0
+2384,2026-06-03,Desk Lamp,Office Supplies,14,35.0
+2385,2026-06-16,Headphones,Accessories,19,75.0
+2386,2026-06-29,Laptop,Electronics,5,800.0
+2387,2026-07-12,Tablet,Electronics,10,350.0
+2388,2026-07-25,Keyboard,Accessories,15,50.0
+2389,2026-08-07,Desk Lamp,Office Supplies,20,35.0
+2390,2026-08-20,Headphones,Accessories,5,75.0
+2391,2026-09-02,Notebook,Office Supplies,10,4.5
+2392,2026-09-15,USB-C Hub,Accessories,15,45.0
+2393,2026-09-28,Mouse,Accessories,20,20.0
+2394,2026-01-05,External SSD,Storage,5,120.0
+2395,2026-01-18,Monitor,Electronics,11,200.0
+2396,2026-01-31,Office Chair,Furniture,16,180.0
+2397,2026-02-13,USB-C Hub,Accessories,1,45.0
+2398,2026-02-26,Mouse,Accessories,6,20.0
+2399,2026-03-11,External SSD,Storage,11,120.0
+2400,2026-03-24,Monitor,Electronics,16,200.0
+2401,2026-04-06,Office Chair,Furniture,1,180.0
+2402,2026-04-19,Webcam,Electronics,6,60.0
+2403,2026-05-02,Laptop,Electronics,11,800.0
+2404,2026-05-15,Tablet,Electronics,17,350.0
+2405,2026-05-28,Keyboard,Accessories,2,50.0
+2406,2026-06-10,Desk Lamp,Office Supplies,7,35.0
+2407,2026-06-23,Headphones,Accessories,12,75.0
+2408,2026-07-06,Laptop,Electronics,17,800.0
+2409,2026-07-19,Tablet,Electronics,2,350.0
+2410,2026-08-01,Keyboard,Accessories,7,50.0
+2411,2026-08-15,Desk Lamp,Office Supplies,12,35.0
+2412,2026-08-28,Headphones,Accessories,17,75.0
+2413,2026-09-10,Notebook,Office Supplies,3,4.5
+2414,2026-09-23,USB-C Hub,Accessories,8,45.0
+2415,2026-10-06,Mouse,Accessories,13,20.0
+2416,2026-01-12,External SSD,Storage,18,120.0
+2417,2026-01-25,Monitor,Electronics,3,200.0
+2418,2026-02-07,Office Chair,Furniture,8,180.0
+2419,2026-02-20,USB-C Hub,Accessories,13,45.0
+2420,2026-03-05,Mouse,Accessories,18,20.0
+2421,2026-03-18,External SSD,Storage,3,120.0
+2422,2026-03-31,Monitor,Electronics,9,200.0
+2423,2026-04-13,Office Chair,Furniture,14,180.0
+2424,2026-04-26,Webcam,Electronics,19,60.0
+2425,2026-05-09,Laptop,Electronics,4,800.0
+2426,2026-05-22,Tablet,Electronics,9,350.0
+2427,2026-06-04,Keyboard,Accessories,14,50.0
+2428,2026-06-18,Desk Lamp,Office Supplies,19,35.0
+2429,2026-07-01,Headphones,Accessories,4,75.0
+2430,2026-07-14,Laptop,Electronics,9,800.0
+2431,2026-07-27,Tablet,Electronics,15,350.0
+2432,2026-08-09,Keyboard,Accessories,20,50.0
+2433,2026-08-22,Desk Lamp,Office Supplies,5,35.0
+2434,2026-09-04,Headphones,Accessories,10,75.0
+2435,2026-09-17,Notebook,Office Supplies,15,4.5
+2436,2026-09-30,USB-C Hub,Accessories,20,45.0
+2437,2026-01-06,Mouse,Accessories,5,20.0
+2438,2026-01-19,External SSD,Storage,10,120.0
+2439,2026-02-01,Monitor,Electronics,15,200.0
+2440,2026-02-14,Office Chair,Furniture,1,180.0
+2441,2026-02-27,USB-C Hub,Accessories,6,45.0
+2442,2026-03-12,Mouse,Accessories,11,20.0
+2443,2026-03-25,External SSD,Storage,16,120.0
+2444,2026-04-07,Monitor,Electronics,1,200.0
+2445,2026-04-21,Office Chair,Furniture,6,180.0
+2446,2026-05-04,Webcam,Electronics,11,60.0
+2447,2026-05-17,Laptop,Electronics,16,800.0
+2448,2026-05-30,Tablet,Electronics,1,350.0
+2449,2026-06-12,Keyboard,Accessories,7,50.0
+2450,2026-06-25,Desk Lamp,Office Supplies,12,35.0
+2451,2026-07-08,Headphones,Accessories,17,75.0
+2452,2026-07-21,Laptop,Electronics,2,800.0
+2453,2026-08-03,Tablet,Electronics,7,350.0
+2454,2026-08-16,Keyboard,Accessories,12,50.0
+2455,2026-08-29,Desk Lamp,Office Supplies,17,35.0
+2456,2026-09-11,Headphones,Accessories,2,75.0
+2457,2026-09-24,Notebook,Office Supplies,7,4.5
+2458,2026-10-07,USB-C Hub,Accessories,13,45.0
+2459,2026-01-13,Mouse,Accessories,18,20.0
+2460,2026-01-26,External SSD,Storage,3,120.0
+2461,2026-02-08,Monitor,Electronics,8,200.0
+2462,2026-02-22,Office Chair,Furniture,13,180.0
+2463,2026-03-07,USB-C Hub,Accessories,18,45.0
+2464,2026-03-20,Mouse,Accessories,3,20.0
+2465,2026-04-02,External SSD,Storage,8,120.0
+2466,2026-04-15,Monitor,Electronics,13,200.0
+2467,2026-04-28,Office Chair,Furniture,19,180.0
+2468,2026-05-11,Webcam,Electronics,4,60.0
+2469,2026-05-24,Laptop,Electronics,9,800.0
+2470,2026-06-06,Tablet,Electronics,14,350.0
+2471,2026-06-19,Keyboard,Accessories,19,50.0
+2472,2026-07-02,Desk Lamp,Office Supplies,4,35.0
+2473,2026-07-15,Headphones,Accessories,9,75.0
+2474,2026-07-28,Laptop,Electronics,14,800.0
+2475,2026-08-10,Tablet,Electronics,19,350.0
+2476,2026-08-23,Keyboard,Accessories,5,50.0
+2477,2026-09-05,Desk Lamp,Office Supplies,10,35.0
+2478,2026-09-18,Headphones,Accessories,15,75.0
+2479,2026-10-02,Notebook,Office Supplies,20,4.5
+2480,2026-01-08,USB-C Hub,Accessories,5,45.0
+2481,2026-01-21,Mouse,Accessories,10,20.0
+2482,2026-02-03,External SSD,Storage,15,120.0
+2483,2026-02-16,Monitor,Electronics,20,200.0
+2484,2026-03-01,Office Chair,Furniture,5,180.0
+2485,2026-03-14,USB-C Hub,Accessories,11,45.0
+2486,2026-03-27,Mouse,Accessories,16,20.0
+2487,2026-04-09,External SSD,Storage,1,120.0
+2488,2026-04-22,Monitor,Electronics,6,200.0
+2489,2026-05-05,Office Chair,Furniture,11,180.0
+2490,2026-05-18,Webcam,Electronics,16,60.0
+2491,2026-05-31,Laptop,Electronics,1,800.0
+2492,2026-06-13,Tablet,Electronics,6,350.0
+2493,2026-06-26,Keyboard,Accessories,11,50.0
+2494,2026-07-09,Desk Lamp,Office Supplies,17,35.0
+2495,2026-07-22,Headphones,Accessories,2,75.0
+2496,2026-08-05,Laptop,Electronics,7,800.0
+2497,2026-08-18,Tablet,Electronics,12,350.0
+2498,2026-08-31,Keyboard,Accessories,17,50.0
+2499,2026-09-13,Desk Lamp,Office Supplies,2,35.0
+2500,2026-09-26,Headphones,Accessories,7,75.0
+,2026-04-10,Laptop,Electronics,2,800.0
+2601,not-a-date,Mouse,Accessories,3,20.0
+2602,2026-04-12,,Accessories,1,20.0
+2603,2026-04-13,Keyboard,,2,50.0
+2604,2026-04-14,Monitor,Electronics,many,200.0
+2605,2026-04-15,Tablet,Electronics,2,free

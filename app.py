@@ -324,7 +324,7 @@ def main():
         if product_revenue.empty:
             st.info("No valid sales match the current filters.")
         else:
-            st.bar_chart(product_revenue, y="revenue", x_label="Product", y_label="Revenue (USD)")
+            st.bar_chart(product_revenue, y="revenue", x_label="Product", y_label=f"Revenue ({CURRENCY_SYMBOL})")
 
     with chart_right:
         st.markdown("**Revenue by category**")
@@ -332,7 +332,12 @@ def main():
         if category_revenue.empty:
             st.info("No category revenue to display.")
         else:
-            st.bar_chart(category_revenue, y="revenue", x_label="Category", y_label="Revenue (USD)")
+            st.bar_chart(
+                category_revenue,
+                y="revenue",
+                x_label="Category",
+                y_label=f"Revenue ({CURRENCY_SYMBOL})",
+            )
 
     st.markdown("**Revenue over time**")
     if filtered_df.empty:
@@ -344,7 +349,10 @@ def main():
             .sort_index()
             .rename_axis("Order date")
         )
-        st.line_chart(daily_revenue, y_label="Revenue (USD)")
+        st.line_chart(
+            daily_revenue,
+            y_label=f"Revenue ({CURRENCY_SYMBOL})",
+        )
 
     st.subheader("Detailed reports")
 
@@ -457,15 +465,38 @@ def main():
         )
                 
     st.subheader("Detailed reports")
-    product_report = group_revenue(filtered_df, "product")
-    if not filtered_df.empty:
-        units_report = filtered_df.groupby("product", as_index=False)["quantity"].sum()
-        product_report = product_report.merge(units_report, on="product", how="left")
-        product_report = product_report.rename(columns={"revenue": "Revenue (USD)", "quantity": "Units sold"})
-        product_report["Revenue (USD)"] = product_report["Revenue (USD)"].round(2)
-    st.markdown("**Product report**")
-    st.dataframe(product_report, use_container_width=True, hide_index=True)
 
+    product_report = group_revenue(filtered_df, "product")
+
+    revenue_column = f"Revenue ({CURRENCY_SYMBOL})"
+
+    if not filtered_df.empty:
+        units_report = filtered_df.groupby(
+            "product",
+            as_index=False,
+        )["quantity"].sum()
+
+        product_report = product_report.merge(
+            units_report,
+            on="product",
+            how="left",
+        )
+
+        product_report = product_report.rename(
+            columns={
+                "revenue": revenue_column,
+                "quantity": "Units sold",
+            }
+        )
+
+        product_report[revenue_column] = product_report[revenue_column].round(2)
+
+    st.markdown("**Product report**")
+    st.dataframe(
+        product_report,
+        use_container_width=True,
+        hide_index=True,
+    )
     with st.expander("Data quality details", expanded=bool(invalid_records)):
         if invalid_df.empty:
             st.success("No invalid rows were found.")
@@ -488,7 +519,10 @@ def main():
                 hide_index=True,
             )
 
-    st.caption("SmartSales Stage 7 · Built with Streamlit and the shared Stage 3 validation rules.")
+    st.caption(
+        "SmartSales Report Generator · Built with Streamlit. "
+        "Sales metrics use validated records and respect the selected filters."
+    )
 
 
 if __name__ == "__main__":

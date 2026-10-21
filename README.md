@@ -330,3 +330,12 @@ configuration, and automated testing.
 
 The project is designed to show how Python can automate common sales
 reporting tasks and make business data easier to explore.
+
+
+## Dashboard Preview
+
+The SmartSales dashboard provides an interactive view of sales performance,
+including key metrics, revenue charts, business insights, and data-quality
+details.
+
+![SmartSales dashboard preview](docs/images/smartsales-dashboard.png)

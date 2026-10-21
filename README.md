@@ -10,12 +10,13 @@ SmartSales automates these tasks using Python. It reads a CSV file, validates ea
 
 ## Features
 
-### 1. CSV Input
+### 1. CSV and Excel Input
 
-- Reads sales data from CSV files.
+- Reads sales data from CSV files and Excel `.xlsx` files.
 - Checks that all required columns are present.
-- Handles UTF-8 and UTF-8-with-BOM encoded files.
+- Handles UTF-8 and UTF-8-with-BOM encoded CSV files.
 - Reports missing files, missing columns, and malformed CSV rows.
+- Supports uploading CSV or Excel files through the dashboard.
 
 ### 2. Data Validation
 
@@ -71,13 +72,17 @@ The Streamlit dashboard provides an interactive interface for exploring sales da
 
 Features include:
 
-- KPI cards for key sales metrics.
+- KPI cards for revenue, units sold, valid sales lines, distinct products,
+  average revenue per sales line, and average order value.
 - Product, category, and date filters.
 - Revenue charts by product, category, and date.
-- Insights into top-performing products and categories.
+- Business insights into highest- and lowest-revenue products and dates.
+- Revenue share by category and top-performing products.
 - Data-quality counts and invalid-record details.
 - A table of validated sales records.
-- CSV upload support for analyzing other sales files.
+- Excel report download.
+- CSV and Excel `.xlsx` upload support.
+- Currency formatting based on the project configuration.
 
 The dashboard reuses the shared CSV-reading and validation functions in `src/smartsales_stage3.py`.
 
@@ -85,21 +90,45 @@ The dashboard reuses the shared CSV-reading and validation functions in `src/sma
 
 ```text
 smartsales-report-generator/
+├── .github/
+│   └── workflows/
+│       └── smartsales-report.yml
 ├── app.py
+├── config.json
 ├── requirements.txt
 ├── README.md
 ├── src/
-│   └── smartsales_stage3.py
+│   ├── __init__.py
+│   ├── main.py
+│   ├── smartsales_readable.py
+│   ├── smartsales_stage3.py
+│   ├── smartsales_stage4.py
+│   ├── smartsales_stage5.py
+│   ├── smartsales_stage6.py
+│   └── reports/
 ├── tests/
 │   └── test_smartsales.py
 ├── data/
-│   └── raw/
-│       └── sales_data_1500_with_invalid.csv
+│   ├── raw/
+│   │   ├── sales_data_1500_with_invalid.csv
+│   │   ├── sales_data_1500_with_invalid.xlsx
+│   │   └── customer.csv
+│   └── processed/
+│       └── cleaned_customer.csv
 └── reports/
+    ├── automated/
+    ├── charts/
     └── smartsales_report.xlsx
 ```
 
-The report and data directories may contain additional files. Generated reports should be treated as output artifacts rather than source code.
+The `src/` directory contains the reporting and data-processing modules.
+The `app.py` file runs the interactive dashboard, while `tests/` contains
+the automated test suite. The `data/` directory contains sample input
+files, and `reports/` contains generated reports and chart images.
+The GitHub Actions workflow supports automated project checks.
+
+Some report files are generated during development or testing and may
+change when the application is run.
 
 ## Requirements
 
@@ -219,7 +248,9 @@ If `config.json` does not exist, SmartSales uses its built-in defaults. Invalid 
 python -m pytest -q
 ```
 
-## Input CSV Format
+## Input Data Format
+SmartSales accepts CSV files and Excel `.xlsx` files. Both formats must
+contain the six required columns shown below.
 
 The input file must contain these six columns:
 
@@ -234,7 +265,7 @@ order_id,order_date,product,category,quantity,unit_price
 
 | Column | Description |
 |---|---|
-| `order_id` | Unique order-line identifier |
+| `order_id` | Unique identifier required for each accepted order record |
 | `order_date` | Transaction date in `YYYY-MM-DD` format |
 | `product` | Product name |
 | `category` | Product category |
@@ -254,7 +285,7 @@ For this project, revenue means quantity multiplied by unit price. Taxes, shippi
 
 ## Run the Automated Tests
 
-Run the test suite:
+Run the complete test suite from the repository root:
 
 ```bash
 python -m pytest -v
@@ -293,6 +324,9 @@ This project demonstrates practical use of:
 
 ## Project Status
 
-The project currently includes a CSV-based Excel report generator, a Streamlit dashboard, and an automated test suite.
+SmartSales is an actively developed Python portfolio project.
+It demonstrates data processing, validation, reporting, visualization,
+configuration, and automated testing.
 
-Development continues as the application is refined and additional reporting capabilities are introduced.
+The project is designed to show how Python can automate common sales
+reporting tasks and make business data easier to explore.
